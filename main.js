@@ -740,14 +740,16 @@
   }
 
   /* ---------- Page init dispatch ---------- */
-  let mm = gsap.matchMedia(), pageCleanup = () => {};
+  let mm = gsap.matchMedia(), staleMM = null, pageCleanup = () => {};
   const pageOf = () => $('main.page', main);
   const onHome = () => pageOf()?.dataset.page === 'home';
   // Returns { addTo(tl, at), play() } for the first reveal (loader or transition decides when).
   function initPage(container) {
     pageCleanup(); pageCleanup = () => {};
     ScrollTrigger.getAll().forEach(t => t.kill());
-    mm.revert(); mm = gsap.matchMedia();
+    // Reverting the old matchMedia context here would snap the leaving page back (orbit card shrinks,
+    // labels vanish) while it is still on screen; go() reverts it once the old page is gone.
+    staleMM = mm; mm = gsap.matchMedia();
     if (container.dataset.page !== 'home') return initWorkDetail(container);
     const hero = $('[data-hero-slideshow]', container); hero && initHeroSlideshow(hero);
     initHomeScroll(container);
@@ -800,6 +802,7 @@
     menuEl && gsap.set(menuEl, { autoAlpha: 0 });
     const both = cur.dataset.page === 'work-detail' && next.dataset.page === 'work-detail';
     await (both ? sideBySide : sheet)(cur, next, trigger, url.hash);
+    staleMM?.revert(); staleMM = null;
     menuEl && gsap.set(menuEl, { clearProps: 'opacity,visibility' });
     $$('[data-menu-link]').forEach(l => l.classList.toggle('w--current', l.getAttribute('href') === (onHome() ? '#top' : '#work')));
     body.dataset.pageTransition = '';
