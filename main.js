@@ -577,7 +577,7 @@
     const W = COLS * CW, H = ROWS * CH;
     // Flat faces land on "c" like the reference; edges and sides pick up the other glyphs.
     const RAMP = ' .,:;i)(1t|uJXvYcccccccccCU[]';
-    const DEPTH = Math.round(H * 0.09), LAYERS = 22, MAX_RY = 1.15, MAX_RX = 0.85;
+    const DEPTH = Math.round(H * 0.09), LAYERS = 22, MAX_RY = 0.8, MAX_RX = 0.6;
     const cvs = document.createElement('canvas'); cvs.width = W; cvs.height = H;
     const ctx = cvs.getContext('2d', { willReadFrequently: true });
     let tx = 0, ty = 0, cx = 0, cy = 0, pointerSeen = false, running = false, raf = 0;
@@ -608,7 +608,7 @@
       const lambert = Math.max(0, nx * L[0] + ny * L[1] + nz * L[2]);
       const front = nz > 0;                                                    // back face shows if turned past 90°
       ctx.clearRect(0, 0, W, H);
-      ctx.font = `700 ${H * 0.58}px "BDO Grotesk", Helvetica, Arial, sans-serif`;
+      ctx.font = `700 ${H * 0.72}px "BDO Grotesk", Helvetica, Arial, sans-serif`;
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       const layer = (z, color) => {
         // Point on the slab at depth z (0 = front face, -DEPTH = back face)
@@ -638,7 +638,7 @@
       pre.textContent = out;
       if (running) raf = requestAnimationFrame(draw);
     };
-    const fit = () => { const r = box.getBoundingClientRect(); pre.style.transform = `scale(${Math.min(1, r.width / (COLS * 3.7))})`; };
+    const fit = () => { const r = box.getBoundingClientRect(); pre.style.transform = `scale(${gsap.utils.clamp(0.6, 2.2, Math.min(r.width / (COLS * 3.6), r.height / (ROWS * 6)))})`; };
     window.addEventListener('pointermove', aim, { passive: true });
     new IntersectionObserver(([e]) => { running = e.isIntersecting; if (running && !raf) raf = requestAnimationFrame(draw); if (!running) { cancelAnimationFrame(raf); raf = 0; } }).observe(box);
     window.addEventListener('resize', fit); fit();
