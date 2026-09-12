@@ -569,7 +569,7 @@
     new IntersectionObserver(([e]) => { visible = e.isIntersecting; visible ? startAuto() : (stopAuto(), gsap.set(bar, { scaleX: 0 })); }, { threshold: 0.25 }).observe(section);
   }
 
-  /* ---------- ASCII "Jael": extruded 3D type rendered to text, turns toward the pointer ---------- */
+  /* ---------- ASCII "J.": extruded 3D type rendered to text, turns toward the pointer ---------- */
   function initAscii(box) {
     const pre = $('[data-ascii]', box); if (!pre) return;
     const COLS = +box.dataset.asciiColumns || 146, ROWS = +box.dataset.asciiRows || 68;
@@ -577,6 +577,7 @@
     const W = COLS * CW, H = ROWS * CH;
     // Flat faces land on "c" like the reference; edges and sides pick up the other glyphs.
     const RAMP = ' .,:;i)(1t|uJXvYcccccccccCU[]';
+    const MARK = 'J.';
     const DEPTH = Math.round(H * 0.09), LAYERS = 22, MAX_RY = 0.8, MAX_RX = 0.6;
     const cvs = document.createElement('canvas'); cvs.width = W; cvs.height = H;
     const ctx = cvs.getContext('2d', { willReadFrequently: true });
@@ -608,12 +609,17 @@
       const lambert = Math.max(0, nx * L[0] + ny * L[1] + nz * L[2]);
       const front = nz > 0;                                                    // back face shows if turned past 90°
       ctx.clearRect(0, 0, W, H);
-      ctx.font = `700 ${H * 0.72}px "BDO Grotesk", Helvetica, Arial, sans-serif`;
+      // "J." at the largest size that still leaves room for the slab to turn without clipping.
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      let fs = H * 0.92;
+      ctx.font = `700 ${fs}px "BDO Grotesk", Helvetica, Arial, sans-serif`;
+      const tw = ctx.measureText(MARK).width;
+      if (tw > W * 0.6) { fs *= (W * 0.6) / tw; ctx.font = `700 ${fs}px "BDO Grotesk", Helvetica, Arial, sans-serif`; }
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       const layer = (z, color) => {
         // Point on the slab at depth z (0 = front face, -DEPTH = back face)
         ctx.setTransform(ux, uy, vx, vy, W / 2 + nx * z, H / 2 + ny * z + H * 0.02);
-        ctx.fillStyle = color; ctx.fillText('Jael', 0, 0);
+        ctx.fillStyle = color; ctx.fillText(MARK, 0, 0);
       };
       const sideLum = 0.3 + 0.12 * Math.abs(sY) + 0.08 * Math.abs(sX);
       // Paint the slab far to near: side layers first, then whichever face is toward the viewer.
