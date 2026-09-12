@@ -107,9 +107,9 @@
       // Each column is only as wide as the letter it lands on, so "Jael" reads as a word once settled.
       tracks.forEach(track => {
         const probe = track.lastElementChild.cloneNode(true);
-        probe.style.cssText = 'position:absolute;visibility:hidden;width:auto;flex:none;padding:0 .04em';
+        probe.style.cssText = 'position:absolute;visibility:hidden;width:auto;flex:none;padding:0;letter-spacing:-.04em';
         track.parentElement.appendChild(probe);
-        track.parentElement.style.width = `${Math.ceil(probe.getBoundingClientRect().width)}px`;
+        track.parentElement.style.width = `${Math.round(probe.getBoundingClientRect().width * 0.97)}px`; // glyph advance minus a hair, so the word sits as tight as normal text
         probe.remove();
       });
       const panelH = panel.getBoundingClientRect().height;
