@@ -81,11 +81,19 @@
       return;
     }
 
-    // Build 12 copies per column: "J" on the left, a strawberry dot on the right.
-    for (let i = 0; i < 12; i++) {
-      const l = document.createElement('div'); l.className = 'loader__logo-cell'; l.textContent = 'J'; left.appendChild(l);
-      const r = document.createElement('div'); r.className = 'loader__logo-cell is--dot'; r.textContent = '.'; right.appendChild(r);
-    }
+    // Four alphabet reels spelling "Jael". Each reel holds a run of letters that
+    // ends on its target; they all spin together and settle one after another.
+    const tracks = $$('[data-load-track]', wrap);
+    const REEL = 12;
+    tracks.forEach(track => {
+      const target = track.dataset.letter, upper = target === target.toUpperCase();
+      const alpha = upper ? 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' : 'abcdefghijklmnopqrstuvwxyz';
+      const idx = alpha.indexOf(target);
+      for (let i = REEL - 1; i >= 0; i--) {
+        const cell = document.createElement('div'); cell.className = 'loader__logo-cell';
+        cell.textContent = alpha[(idx - i + 26) % 26]; track.appendChild(cell);
+      }
+    });
     gsap.set(wrap, { display: 'block' });
 
     const measure = track => {
@@ -96,24 +104,32 @@
     };
 
     document.fonts.ready.then(() => requestAnimationFrame(() => {
-      const L = measure(left), R = measure(right);
-      const lEnd = -(L.step * L.finalIndex), rEnd = -(R.step * R.finalIndex);
-      const lOver = lEnd + L.cell * 0.25, rOver = rEnd + R.cell * 0.25;
+      // Each column is only as wide as the letter it lands on, so "Jael" reads as a word once settled.
+      tracks.forEach(track => {
+        const probe = track.lastElementChild.cloneNode(true);
+        probe.style.cssText = 'position:absolute;visibility:hidden;width:auto;flex:none;padding:0 .04em';
+        track.parentElement.appendChild(probe);
+        track.parentElement.style.width = `${Math.ceil(probe.getBoundingClientRect().width)}px`;
+        probe.remove();
+      });
       const panelH = panel.getBoundingClientRect().height;
-
-      gsap.set(left, { y: L.step }); gsap.set(right, { y: R.step });
+      const tl = gsap.timeline();
+      const SPIN = 1.6, STEP = 0.45, SETTLE = 0.6;
+      tracks.forEach((track, i) => {
+        const m = measure(track), end = -(m.step * m.finalIndex), over = end + m.cell * 0.25;
+        gsap.set(track, { y: m.step });
+        const spin = SPIN + i * STEP;
+        tl.to(track, { y: over, duration: spin, ease: 'osmo', force3D: true }, i * 0.06)
+          .to(track, { y: end, duration: SETTLE, ease: 'osmo', force3D: true }, i * 0.06 + spin);
+      });
       wrap.dataset.loadState = 'ready';
       gsap.set(container, { autoAlpha: 1 });
-
-      const tl = gsap.timeline();
-      tl.to(left, { y: lOver, duration: 2.3, ease: 'osmo', force3D: true }, 0)
-        .to(left, { y: lEnd, duration: 0.7, ease: 'osmo', force3D: true }, 2.3)
-        .to(right, { y: rOver, duration: 2.3, ease: 'osmo', force3D: true }, 0.1)
-        .to(right, { y: rEnd, duration: 0.7, ease: 'osmo', force3D: true }, 2.4)
-        .add('revealPage', 3.2)
+      const reveal = SPIN + (tracks.length - 1) * (STEP + 0.06) + SETTLE + 0.35;
+      tl.add('revealPage', reveal)
         .set(hero, { opacity: 1 }, 'revealPage');
       heroLines?.addTo(tl, 'revealPage+=0.05');
-      tl.to(container, { autoAlpha: 0, duration: 0.4, ease: 'power1.out' }, 'revealPage')
+      // The settled name lifts with the panel, then the curtain goes up.
+      tl.to(container, { y: -panelH * 0.18, autoAlpha: 0, duration: 0.55, ease: 'osmo' }, 'revealPage')
         .to(panel, { y: -panelH, duration: 1, ease: 'osmo' }, 'revealPage')
         .to(panelBottom, { scaleY: 0, duration: 1, ease: 'osmo' }, 'revealPage')
         .set(wrap, { display: 'none' })
