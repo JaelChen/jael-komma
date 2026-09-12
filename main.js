@@ -241,18 +241,19 @@
     sync();
 
     const col = $('[data-intro-trigger]', root), scroll = $('[data-intro-scroll]', root);
+    if (!col || !scroll) return;
+    // The quote tracks the scroll on desktop only; the You→I / want→make swap runs everywhere.
     mm.add('(min-width: 640px)', () => {
-      if (!col || !scroll) return;
       gsap.to(scroll, {
         y: () => { const p = col.offsetHeight || col.parentElement.offsetHeight, s = scroll.offsetHeight || 100; return Math.min(p * 0.32, Math.max(0, p - s - 64)); },
         ease: 'power1.inOut', scrollTrigger: { trigger: col, start: 'top 50%', end: 'bottom 30%', scrub: true, invalidateOnRefresh: true },
       });
-      $$('.word-swap', root).forEach(ws => {
-        const o = $('.old-word', ws), nw = $('.new-word', ws);
-        gsap.timeline({ scrollTrigger: { trigger: col, start: 'top 50%', end: 'bottom 50%', scrub: true, invalidateOnRefresh: true } })
-          .fromTo(o, { yPercent: 0 }, { yPercent: -100 }).to(o, { color: '#2f2f2f', opacity: 0.5, ease: 'none' }, 0);
-        gsap.timeline({ scrollTrigger: { trigger: col, start: 'top 50%', end: 'bottom 50%', scrub: true, invalidateOnRefresh: true } }).to(nw, { yPercent: -100 });
-      });
+    });
+    $$('.word-swap', root).forEach(ws => {
+      const o = $('.old-word', ws), nw = $('.new-word', ws);
+      gsap.timeline({ scrollTrigger: { trigger: col, start: 'top 50%', end: 'bottom 50%', scrub: true, invalidateOnRefresh: true } })
+        .fromTo(o, { yPercent: 0 }, { yPercent: -100 }).to(o, { color: '#2f2f2f', opacity: 0.5, ease: 'none' }, 0);
+      gsap.timeline({ scrollTrigger: { trigger: col, start: 'top 50%', end: 'bottom 50%', scrub: true, invalidateOnRefresh: true } }).to(nw, { yPercent: -100 });
     });
   }
 
