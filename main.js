@@ -101,18 +101,21 @@
     };
 
     document.fonts.ready.then(() => requestAnimationFrame(() => {
-      // Each column is as wide as the letter it lands on (full glyph box, so nothing gets clipped),
-      // then the whole word is shifted so "ae" sits on the screen's centre line.
-      tracks.forEach(track => {
-        const probe = track.lastElementChild.cloneNode(true);
+      // Each column is as wide as the letter it lands on (full glyph box, so nothing gets clipped).
+      // The dot column starts at zero width; the word is centred on where "J.AEL" will end up.
+      const width = (col, cell) => {
+        const probe = cell.cloneNode(true);
         probe.style.cssText = 'position:absolute;visibility:hidden;width:auto;flex:none;padding:0 .02em';
-        track.parentElement.appendChild(probe);
-        track.parentElement.style.width = `${Math.ceil(probe.getBoundingClientRect().width)}px`;
+        col.appendChild(probe);
+        const w = Math.ceil(probe.getBoundingClientRect().width);
         probe.remove();
-      });
+        return w;
+      };
+      tracks.forEach(track => { track.parentElement.style.width = `${width(track.parentElement, track.lastElementChild)}px`; });
+      const dotCol = $('[data-load-dot]', wrap), dotCell = dotCol.firstElementChild, dotW = width(dotCol, dotCell);
       const logo = $('[data-load-logo]', wrap), cols = tracks.map(t => t.parentElement);
-      const a = cols[1].getBoundingClientRect(), e = cols[2].getBoundingClientRect();
-      gsap.set(logo, { x: innerWidth / 2 - (a.left + e.right) / 2 });
+      const j = cols[0].getBoundingClientRect(), l = cols[3].getBoundingClientRect();
+      gsap.set(logo, { x: innerWidth / 2 - (j.left + l.right) / 2 + dotW / 2 });
       const panelH = panel.getBoundingClientRect().height;
       const tl = gsap.timeline();
       const SPIN = 1.6, STEP = 0.45, SETTLE = 0.6;
@@ -123,9 +126,15 @@
         tl.to(track, { y: over, duration: spin, ease: 'osmo', force3D: true }, i * 0.06)
           .to(track, { y: end, duration: SETTLE, ease: 'osmo', force3D: true }, i * 0.06 + spin);
       });
+      // Once the last reel has settled the word opens up and the dot pops in between J and A.
+      const settled = SPIN + (tracks.length - 1) * (STEP + 0.06) + SETTLE;
+      gsap.set(dotCell, { y: dotCol.getBoundingClientRect().height });
+      tl.to(dotCol, { width: dotW, duration: 0.5, ease: 'osmo' }, settled)
+        .to(logo, { x: `-=${dotW / 2}`, duration: 0.5, ease: 'osmo' }, settled)
+        .to(dotCell, { y: 0, duration: 0.55, ease: 'osmo', force3D: true }, settled + 0.1);
       wrap.dataset.loadState = 'ready';
       gsap.set(container, { autoAlpha: 1 });
-      const reveal = SPIN + (tracks.length - 1) * (STEP + 0.06) + SETTLE + 0.35;
+      const reveal = settled + 0.65 + 0.35;
       tl.add('revealPage', reveal);
       entry.addTo(tl, 'revealPage+=0.05');
       // The settled name lifts with the panel, then the curtain goes up.
