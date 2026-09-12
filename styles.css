@@ -141,7 +141,7 @@ body[data-menu-status=open] .underlay-nav__cta-header,body[data-menu-status=clos
 }
 
 /* ---------- Hero (fixed, page scrolls over it) ---------- */
-[data-main]{position:relative;z-index:2;will-change:transform}
+[data-main]{position:relative;z-index:2} /* no will-change here: it would turn the fixed hero into a scrolling one */
 .page{position:relative;background:var(--color-alabaster-grey)}
 .home-hero{--hero-edge:clamp(1rem,2vw,2rem);position:fixed;top:0;left:0;z-index:0;width:100vw;height:100svh;overflow:clip;background:var(--color-onyx);color:#fff;isolation:isolate;opacity:0;transition:background-color .15s ease}
 .home-hero::after{content:"";position:absolute;inset:0;z-index:5;background:var(--color-alabaster-grey);opacity:0;pointer-events:none;transition:opacity .15s ease}
