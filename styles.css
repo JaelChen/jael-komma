@@ -361,6 +361,7 @@ body[data-menu-status=open] .underlay-nav__cta-header,body[data-menu-status=clos
 .site-footer__time-colon{display:inline-block;animation:1s step-end infinite site-footer-time-colon-blink}
 @keyframes site-footer-time-colon-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
 .site-footer__bottom{position:absolute;left:var(--site-footer-edge);right:var(--site-footer-edge);bottom:var(--site-footer-edge)}
+.site-footer__dot{color:var(--color-strawberry);margin-inline:-.02em}
 .site-footer__wordmark{--site-footer-wordmark-size:16px;display:flex;justify-content:space-between;column-gap:.25em;font-size:var(--site-footer-wordmark-size);font-weight:700;line-height:.78;letter-spacing:-.04em;white-space:nowrap;transform:translateY(.02em)}
 .site-footer__dark{background:var(--color-onyx);opacity:0;pointer-events:none;position:absolute;inset:0}
 @media (max-width:991px){.site-footer__top{display:grid;grid-template-columns:repeat(2,max-content);justify-content:start;gap:3rem clamp(2rem,10vw,6rem)}.site-footer__column:nth-child(2n){justify-self:start}}

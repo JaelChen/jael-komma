@@ -677,7 +677,7 @@
     const tick = () => { const [h, m] = fmt.format(new Date()).split(':'); timeEls.forEach(el => { el.innerHTML = `${h}<span class="site-footer__time-colon">:</span>${m} GMT+8`; }); };
     tick(); const iv = setInterval(() => block.isConnected ? tick() : clearInterval(iv), 1000);
     // Wordmark: binary-search the largest font-size that fits the width
-    const spans = $$('span', mark);
+    const spans = $$(':scope > span', mark);
     const fit = () => {
       const w = bottom.clientWidth; let lo = 16, hi = 2000, best = lo;
       while (lo <= hi) { const mid = (lo + hi) >> 1; mark.style.setProperty('--site-footer-wordmark-size', `${mid}px`); const gap = parseFloat(getComputedStyle(mark).columnGap) || 0; const tw = spans.reduce((a, s) => a + s.getBoundingClientRect().width, 0) + gap; if (tw <= w + 0.5) { best = mid; lo = mid + 1; } else hi = mid - 1; }
