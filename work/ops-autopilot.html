@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ops Autopilot | Jael Chen</title>
+<meta name="description" content="Scripts that took PUMA's daily Pinduoduo routine at Baozun from three hours to thirty minutes.">
+<meta name="theme-color" content="#eaeaea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ops Autopilot | Jael Chen">
+<meta property="og:description" content="Scripts that took PUMA's daily Pinduoduo routine at Baozun from three hours to thirty minutes.">
+<meta property="og:image" content="../assets/work/ops-autopilot-hero.webp">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preload" href="../assets/fonts/BDOGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/BDOGrotesk-DemiBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body data-initial-loader="pending" data-section-theme="active" data-footer-theme="inactive" data-menu-status="">
+
+<!-- ================= Loader ================= -->
+<div class="loader" data-load-wrap data-load-state="booting" aria-hidden="true">
+  <div class="loader__panel" data-load-panel>
+    <div class="loader__panel-fill" data-load-panel-fill></div>
+    <div class="loader__panel-bottom" data-load-panel-bottom></div>
+    <div class="loader__container" data-load-container>
+      <div class="loader__logo" data-load-logo>
+        <div class="loader__logo-column"><div class="loader__logo-track" data-load-track data-letter="J"></div></div>
+        <div class="loader__logo-column"><div class="loader__logo-track" data-load-track data-letter="a"></div></div>
+        <div class="loader__logo-column"><div class="loader__logo-track" data-load-track data-letter="e"></div></div>
+        <div class="loader__logo-column"><div class="loader__logo-track" data-load-track data-letter="l"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="static-noise" aria-hidden="true"></div>
+
+<!-- ================= Header + underlay nav ================= -->
+<div class="underlay-nav" data-site-header data-section-theme="inactive" data-footer-theme="inactive">
+  <div class="header-progressive-blur" data-header-blur aria-hidden="true">
+    <div class="header-progressive-blur__layer is--1"></div>
+    <div class="header-progressive-blur__layer is--2"></div>
+    <div class="header-progressive-blur__layer is--3"></div>
+    <div class="header-progressive-blur__layer is--4"></div>
+    <div class="header-progressive-blur__layer is--5"></div>
+  </div>
+
+  <header class="underlay-nav__header">
+    <div class="underlay-nav__container">
+      <a href="#top" class="underlay-nav__logo" aria-label="Jael Chen home" data-scroll-top>
+        <span class="underlay-nav__logo-mark" aria-hidden="true">J.</span>
+      </a>
+      <div class="underlay-nav__actions">
+        <a href="mailto:2069490556@qq.com" class="button-043 underlay-nav__cta-header">
+          <span class="button-043__bg"><span class="button-043__bg-hover"></span></span>
+          <span class="button-043__inner">
+            <span class="button-043__mask"><span class="button-043__text">Say hello</span></span>
+            <span class="button-043__icon-wrap">
+              <span class="button-043__icon-bg"></span>
+              <span class="button-043__icon-mask"><span class="button-043__icon-list">
+                <svg class="button-043__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+                <svg class="button-043__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+                <svg class="button-043__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+              </span></span>
+            </span>
+          </span>
+        </a>
+        <button class="underlay-nav__toggle" data-underlay-nav-toggle aria-expanded="false" aria-label="open menu">
+          <span class="underlay-nav__toggle-icon">
+            <span class="underlay-nav__toggle-bar"></span>
+            <span class="underlay-nav__toggle-bar"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="underlay-nav__menu" data-underlay-nav-menu aria-label="Site">
+    <div class="underlay-nav__inner">
+      <ul class="underlay-nav__list">
+        <li data-reveal-l><a href="#top" class="underlay-nav__link-large w--current" data-menu-link><span class="underlay-nav__link-label">Home</span></a></li>
+        <li data-reveal-l><a href="#work" class="underlay-nav__link-large" data-menu-link><span class="underlay-nav__link-label">Work</span></a></li>
+        <li data-reveal-l><a href="#about" class="underlay-nav__link-large" data-menu-link><span class="underlay-nav__link-label">About</span></a></li>
+        <li data-reveal-l><a href="#contact" class="underlay-nav__link-large" data-menu-link><span class="underlay-nav__link-label">Contact</span></a></li>
+      </ul>
+      <div class="underlay-nav__bottom">
+        <div class="underlay-nav__bottom-col">
+          <div data-reveal-s><span class="underlay-nav__link-small is--faded">Elsewhere</span></div>
+          <ul class="underlay-nav__list is--small">
+            <li data-reveal-s><a href="https://www.xiaohongshu.com/" target="_blank" rel="noopener" class="underlay-nav__link-small underlay-nav__hover-link" data-underlay-hover-link><span class="underlay-nav__hover-label" data-underlay-hover-current>Xiaohongshu</span><span class="underlay-nav__hover-label" data-underlay-hover-next aria-hidden="true">Xiaohongshu</span></a></li>
+            <li data-reveal-s><a href="../assets/wechat-qr-jael.png" target="_blank" rel="noopener" class="underlay-nav__link-small underlay-nav__hover-link" data-underlay-hover-link><span class="underlay-nav__hover-label" data-underlay-hover-current>WeChat</span><span class="underlay-nav__hover-label" data-underlay-hover-next aria-hidden="true">WeChat</span></a></li>
+          </ul>
+        </div>
+        <div class="underlay-nav__bottom-col">
+          <div data-reveal-s><span class="underlay-nav__link-small is--faded">Contact</span></div>
+          <ul class="underlay-nav__list is--small">
+            <li data-reveal-s><a href="mailto:2069490556@qq.com" class="underlay-nav__link-small underlay-nav__hover-link" data-underlay-hover-link><span class="underlay-nav__hover-label" data-underlay-hover-current>2069490556@qq.com</span><span class="underlay-nav__hover-label" data-underlay-hover-next aria-hidden="true">2069490556@qq.com</span></a></li>
+            <li data-reveal-s><a href="mailto:2069490556@qq.com?subject=Internship" class="underlay-nav__link-small underlay-nav__hover-link" data-underlay-hover-link><span class="underlay-nav__hover-label" data-underlay-hover-current>Hiring for Shanghai?</span><span class="underlay-nav__hover-label" data-underlay-hover-next aria-hidden="true">Hiring for Shanghai?</span></a></li>
+          </ul>
+        </div>
+        <div class="underlay-nav__bottom-border"></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="underlay-nav__overlay" data-underlay-nav-overlay>
+    <div class="underlay-nav__dark"></div>
+    <div class="underlay-nav__borders">
+      <div class="underlay-nav__border-row"><div class="underlay-nav__border"></div><div class="underlay-nav__corner"></div></div>
+      <div class="underlay-nav__border-row"><div class="underlay-nav__corner is--bottom"></div><div class="underlay-nav__border"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="transition" data-transition-wrap aria-hidden="true"><div class="transition__middle" data-transition-middle></div></div>
+
+<!-- ================= Page ================= -->
+<div data-main>
+<main id="top" class="page page--work" data-page="work-detail">
+  <article class="wd-case-study">
+    <section class="wd-hero">
+      <h1 class="wd-title" data-work-detail-title>Ops Autopilot</h1>
+      <div class="wd-meta" data-wd-meta><div class="wd-meta__item"><span class="wd-meta__label">Role</span><span class="wd-meta__value">E-commerce ops intern</span></div><div class="wd-meta__item"><span class="wd-meta__label">Category</span><span class="wd-meta__value">AI automation</span></div><div class="wd-meta__item"><span class="wd-meta__label">Year</span><span class="wd-meta__value">2026</span></div><div class="wd-meta__item"><span class="wd-meta__label">Scope</span><span class="wd-meta__value">Scripts, Reporting, Handover</span></div></div>
+    </section>
+    <div class="wd-hero-img" data-wd-reveal><img class="wd-hero-img__img" src="../assets/work/ops-autopilot-hero.webp" alt="Ops Autopilot" width="1920" height="1080" decoding="async"></div>
+    <section class="wd-description" data-wd-reveal><p class="wd-description__label">Project Description</p><div class="wd-description__body"><p class="wd-description__text">Every morning from nine to twelve went to the same loop: pull numbers, write the daily report, adjust prices, submit promotions. Necessary, and none of it needed judgement.</p><p class="wd-description__text">I built a set of scripts with Claude Code and Codex that replaced the rule-based steps and left the decisions to a person. They ran for real every day of the internship, not as a one-off demo, and were handed to the team when I left.</p></div></section>
+    <section class="wd-details-section is-after-description" data-wd-reveal><div class="wd-details-section__label"><span class="wd-section-label">Project Details</span></div><dl class="wd-details"><div class="wd-details__row"><dt>Where</dt><dd>Baozun, PUMA store on Pinduoduo</dd></div><div class="wd-details__row"><dt>Tools</dt><dd>Claude Code, Codex, Python</dd></div><div class="wd-details__row"><dt>Result</dt><dd>Three hours of work down to under thirty minutes</dd></div><div class="wd-details__row"><dt>Duration</dt><dd>March – July 2026</dd></div></dl></section>
+    <section class="wd-image-break is-two-up" data-wd-gallery>
+      <figure class="wd-image-break__item" data-wd-gallery-item><img class="wd-image-break__img" src="../assets/work/ops-autopilot-hero-hover.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async"></figure>
+      <figure class="wd-image-break__item" data-wd-gallery-item><img class="wd-image-break__img" src="../assets/work/ops-autopilot-card.webp" alt="" width="800" height="1200" loading="lazy" decoding="async"></figure>
+    </section>
+    <section class="wd-description is-after-media" data-wd-reveal><p class="wd-description__label">What I learned</p><div class="wd-description__body"><p class="wd-description__text">Writing the script was the easy part. Spotting which steps deserved to be replaced was the job.</p><p class="wd-description__text">The freed time went to the work that actually needed a human, which is the only reason anyone cared.</p></div></section>
+  </article>
+
+  <!-- Next work: pinned for two screens, then turns the page on its own -->
+  <section class="scroll-next" data-scroll-next-wrap aria-label="Scroll to next work: Learning in Public">
+    <a href="learning-in-public.html" class="scroll-next__inner" data-scroll-next-link data-work-detail-direction="next" aria-label="Next work: Learning in Public">
+      <div class="scroll-next__bg"><img class="scroll-next__bg-img" src="../assets/work/learning-in-public-hero.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async" data-scroll-next-bg><div class="scroll-next__bg-overlay" data-scroll-next-overlay></div></div>
+      <div class="scroll-next__center">
+        <span class="scroll-next__sub">Next Work</span>
+        <h2 class="scroll-next__h">Learning in Public</h2>
+        <div class="scroll-next__progress" aria-hidden="true"><div class="scroll-next__progress-track"><div class="scroll-next__progress-fill" data-scroll-next-path></div></div></div>
+      </div>
+    </a>
+  </section>
+  <section class="scroll-next-mobile" data-scroll-next-mobile aria-label="Next work: Learning in Public">
+    <div class="scroll-next-mobile__content">
+      <div class="scroll-next-mobile__copy"><span class="scroll-next-mobile__sub">Next Work</span><h2 class="scroll-next-mobile__h">Learning in Public</h2></div>
+      <a href="learning-in-public.html" class="button-043 scroll-next-mobile__button" data-work-detail-direction="next" aria-label="Next work: Learning in Public">
+        <span class="button-043__bg"><span class="button-043__bg-hover"></span></span>
+        <span class="button-043__inner">
+          <span class="button-043__mask"><span class="button-043__text">Click to view</span></span>
+          <span class="button-043__icon-wrap"><span class="button-043__icon-bg"></span><span class="button-043__icon-mask"><span class="button-043__icon-list"><svg class="button-043__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.6"/></svg><svg class="button-043__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.6"/></svg><svg class="button-043__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.6"/></svg></span></span></span>
+        </span>
+      </a>
+    </div>
+    <div class="scroll-next-mobile__image"><img class="scroll-next-mobile__img" src="../assets/work/learning-in-public-hero.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async"></div>
+  </section>
+
+  <div class="wd-visit-fixed" role="navigation" aria-label="Project navigation">
+    <a href="claude-setup-kit.html" class="wd-visit-arrow wd-visit-arrow--previous" aria-label="Previous project: Claude Setup Kit" data-work-detail-direction="previous"><span class="wd-visit-arrow__bg" aria-hidden="true"><span class="wd-visit-arrow__bg-hover"></span></span><span class="wd-visit-arrow__mask" aria-hidden="true"><span class="wd-visit-arrow__list"><svg class="wd-visit-arrow__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.6"/></svg><svg class="wd-visit-arrow__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.6"/></svg><svg class="wd-visit-arrow__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.6"/></svg></span></span></a>
+    <a href="learning-in-public.html" class="wd-visit-arrow" aria-label="Next project: Learning in Public" data-work-detail-direction="next"><span class="wd-visit-arrow__bg" aria-hidden="true"><span class="wd-visit-arrow__bg-hover"></span></span><span class="wd-visit-arrow__mask" aria-hidden="true"><span class="wd-visit-arrow__list"><svg class="wd-visit-arrow__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.6"/></svg><svg class="wd-visit-arrow__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.6"/></svg><svg class="wd-visit-arrow__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.6"/></svg></span></span></a>
+  </div>
+</main>
+</div>
+
+<script src="../assets/vendor/gsap.min.js"></script>
+<script src="../assets/vendor/ScrollTrigger.min.js"></script>
+<script src="../assets/vendor/SplitText.min.js"></script>
+<script src="../assets/vendor/lenis.min.js"></script>
+<script src="../main.js"></script>
+</body>
+</html>

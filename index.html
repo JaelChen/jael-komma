@@ -112,28 +112,30 @@
   </div>
 </div>
 
+<div class="transition" data-transition-wrap aria-hidden="true"><div class="transition__middle" data-transition-middle></div></div>
+
 <!-- ================= Page ================= -->
 <div data-main>
-<main id="top" class="page">
+<main id="top" class="page" data-page="home">
 
   <!-- Hero: fixed slideshow that the page scrolls over -->
   <section class="home-hero" aria-label="Featured work" data-hero-slideshow>
     <div class="home-hero__media" aria-hidden="true">
       <div class="home-hero__image-stack" data-hero-parallax-image>
         <div class="home-hero__slides">
-          <div class="home-hero__slide is--current" data-hero-slide data-index="0" data-href="#work" data-name="Claude Setup Kit">
+          <div class="home-hero__slide is--current" data-hero-slide data-index="0" data-href="work/claude-setup-kit.html" data-name="Claude Setup Kit">
             <div class="home-hero__slide-inner" data-hero-slide-inner>
               <img class="home-hero__image" src="assets/work/claude-setup-kit-hero.webp" alt="" width="1920" height="1080" loading="eager" decoding="async" data-hero-work-image="primary">
               <img class="home-hero__image home-hero__image--hover" src="assets/work/claude-setup-kit-hero-hover.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async" data-hero-work-image="hover">
             </div>
           </div>
-          <div class="home-hero__slide" data-hero-slide data-index="1" data-href="#work" data-name="Ops Autopilot">
+          <div class="home-hero__slide" data-hero-slide data-index="1" data-href="work/ops-autopilot.html" data-name="Ops Autopilot">
             <div class="home-hero__slide-inner" data-hero-slide-inner>
               <img class="home-hero__image" src="assets/work/ops-autopilot-hero.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async" data-hero-work-image="primary">
               <img class="home-hero__image home-hero__image--hover" src="assets/work/ops-autopilot-hero-hover.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async" data-hero-work-image="hover">
             </div>
           </div>
-          <div class="home-hero__slide" data-hero-slide data-index="2" data-href="#work" data-name="Learning in Public">
+          <div class="home-hero__slide" data-hero-slide data-index="2" data-href="work/learning-in-public.html" data-name="Learning in Public">
             <div class="home-hero__slide-inner" data-hero-slide-inner>
               <img class="home-hero__image" src="assets/work/learning-in-public-hero.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async" data-hero-work-image="primary">
               <img class="home-hero__image home-hero__image--hover" src="assets/work/learning-in-public-hero-hover.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async" data-hero-work-image="hover">
@@ -156,7 +158,7 @@
         <span class="home-hero__stack-item" data-hero-work-year aria-hidden="true"><span class="home-hero__stack-word" data-hero-word>2026</span></span>
         <span class="home-hero__stack-item" data-hero-work-year aria-hidden="true"><span class="home-hero__stack-word" data-hero-word>2026</span></span>
       </span>
-      <a href="#work" class="button-043 home-hero__work-button" aria-label="View project: Claude Setup Kit" data-hero-reveal-line data-hero-work-trigger>
+      <a href="work/claude-setup-kit.html" class="button-043 home-hero__work-button" aria-label="View project: Claude Setup Kit" data-hero-reveal-line data-hero-work-trigger>
         <span class="button-043__bg"><span class="button-043__bg-hover"></span></span>
         <span class="button-043__inner">
           <span class="button-043__mask"><span class="button-043__text">View project</span></span>
@@ -227,7 +229,7 @@
               <div class="orbit-tiles__collection">
                 <div class="orbit-tiles__list" data-orbit-tiles-list>
 
-                  <div class="orbit-tiles__item" data-orbit-tiles-item data-work-index="0" data-work-name="Claude Setup Kit" data-work-desc="A paid setup guide and one-click script that gets non-technical people onto Claude. Priced, sold and supported by me. 100+ paying users since 2025." data-work-href="#work-detail-0">
+                  <div class="orbit-tiles__item" data-orbit-tiles-item data-work-index="0" data-work-name="Claude Setup Kit" data-work-desc="A paid setup guide and one-click script that gets non-technical people onto Claude. Priced, sold and supported by me. 100+ paying users since 2025." data-work-href="work/claude-setup-kit.html">
                     <button type="button" class="orbit-card-btn" data-orbit-card-btn aria-label="View selected work">
                       <div class="orbit-card">
                         <div class="orbit-card__tilt" data-orbit-card-tilt data-max-rotate="14">
@@ -239,7 +241,7 @@
                     </button>
                   </div>
 
-                  <div class="orbit-tiles__item" data-orbit-tiles-item data-work-index="1" data-work-name="Ops Autopilot" data-work-desc="Scripts that took PUMA's daily Pinduoduo store routine at Baozun from three hours to thirty minutes, then handed to the team. Ran every day for four and a half months." data-work-href="#work-detail-1">
+                  <div class="orbit-tiles__item" data-orbit-tiles-item data-work-index="1" data-work-name="Ops Autopilot" data-work-desc="Scripts that took PUMA's daily Pinduoduo store routine at Baozun from three hours to thirty minutes, then handed to the team. Ran every day for four and a half months." data-work-href="work/ops-autopilot.html">
                     <button type="button" class="orbit-card-btn" data-orbit-card-btn aria-label="View selected work">
                       <div class="orbit-card">
                         <div class="orbit-card__tilt" data-orbit-card-tilt data-max-rotate="14">
@@ -251,7 +253,7 @@
                     </button>
                   </div>
 
-                  <div class="orbit-tiles__item" data-orbit-tiles-item data-work-index="2" data-work-name="Learning in Public" data-work-desc="Notes on Xiaohongshu about the AI tools I actually use and the mistakes I make with them. No tutorials, just the process." data-work-href="#work-detail-2">
+                  <div class="orbit-tiles__item" data-orbit-tiles-item data-work-index="2" data-work-name="Learning in Public" data-work-desc="Notes on Xiaohongshu about the AI tools I actually use and the mistakes I make with them. No tutorials, just the process." data-work-href="work/learning-in-public.html">
                     <button type="button" class="orbit-card-btn" data-orbit-card-btn aria-label="View selected work">
                       <div class="orbit-card">
                         <div class="orbit-card__tilt" data-orbit-card-tilt data-max-rotate="14">
@@ -263,7 +265,7 @@
                     </button>
                   </div>
 
-                  <div class="orbit-tiles__item" data-orbit-tiles-item data-work-index="3" data-work-name="This Website" data-work-desc="The page you are reading. Plain HTML, CSS and JavaScript, written by hand, no framework, no build step. Every line is one I can explain." data-work-href="#work-detail-3">
+                  <div class="orbit-tiles__item" data-orbit-tiles-item data-work-index="3" data-work-name="This Website" data-work-desc="The page you are reading. Plain HTML, CSS and JavaScript, written by hand, no framework, no build step. Every line is one I can explain." data-work-href="work/this-website.html">
                     <button type="button" class="orbit-card-btn" data-orbit-card-btn aria-label="View selected work">
                       <div class="orbit-card">
                         <div class="orbit-card__tilt" data-orbit-card-tilt data-max-rotate="14">
@@ -284,10 +286,10 @@
                 <div class="orbit-tiles__info" data-orbit-info><p class="orbit-tiles__info-desc" data-orbit-info-desc></p></div>
                 <div class="orbit-tiles__list-wrap">
                   <div class="orbit-list" data-directional-hover data-type="y">
-                    <a href="#work-detail-0" class="orbit-list__item" data-directional-hover-item data-orbit-list-item data-work-index="0"><div class="orbit-list__hover-tile" data-directional-hover-tile></div><span class="orbit-list__name">Claude Setup Kit</span></a>
-                    <a href="#work-detail-1" class="orbit-list__item" data-directional-hover-item data-orbit-list-item data-work-index="1"><div class="orbit-list__hover-tile" data-directional-hover-tile></div><span class="orbit-list__name">Ops Autopilot</span></a>
-                    <a href="#work-detail-2" class="orbit-list__item" data-directional-hover-item data-orbit-list-item data-work-index="2"><div class="orbit-list__hover-tile" data-directional-hover-tile></div><span class="orbit-list__name">Learning in Public</span></a>
-                    <a href="#work-detail-3" class="orbit-list__item" data-directional-hover-item data-orbit-list-item data-work-index="3"><div class="orbit-list__hover-tile" data-directional-hover-tile></div><span class="orbit-list__name">This Website</span></a>
+                    <a href="work/claude-setup-kit.html" class="orbit-list__item" data-directional-hover-item data-orbit-list-item data-work-index="0"><div class="orbit-list__hover-tile" data-directional-hover-tile></div><span class="orbit-list__name">Claude Setup Kit</span></a>
+                    <a href="work/ops-autopilot.html" class="orbit-list__item" data-directional-hover-item data-orbit-list-item data-work-index="1"><div class="orbit-list__hover-tile" data-directional-hover-tile></div><span class="orbit-list__name">Ops Autopilot</span></a>
+                    <a href="work/learning-in-public.html" class="orbit-list__item" data-directional-hover-item data-orbit-list-item data-work-index="2"><div class="orbit-list__hover-tile" data-directional-hover-tile></div><span class="orbit-list__name">Learning in Public</span></a>
+                    <a href="work/this-website.html" class="orbit-list__item" data-directional-hover-item data-orbit-list-item data-work-index="3"><div class="orbit-list__hover-tile" data-directional-hover-tile></div><span class="orbit-list__name">This Website</span></a>
                   </div>
                 </div>
               </div>
@@ -299,51 +301,17 @@
         <section class="mobile-works-gallery" data-mobile-works-gallery data-header-light-surface>
           <h2 class="mobile-works-gallery__heading">Featured Projects</h2>
           <div class="mobile-works-gallery__track" data-mobile-works-track aria-label="Selected work images">
-            <a href="#work-detail-0" class="mobile-works-gallery__slide" data-mobile-works-slide data-work-index="0" data-work-name="Claude Setup Kit" data-work-desc="A paid setup guide and one-click script that gets non-technical people onto Claude. Priced, sold and supported by me. 100+ paying users since 2025."><img class="mobile-works-gallery__image" src="assets/work/claude-setup-kit-card.webp" alt="Claude Setup Kit" width="800" height="1200" loading="lazy"></a>
-            <a href="#work-detail-1" class="mobile-works-gallery__slide" data-mobile-works-slide data-work-index="1" data-work-name="Ops Autopilot" data-work-desc="Scripts that took PUMA's daily Pinduoduo store routine at Baozun from three hours to thirty minutes, then handed to the team."><img class="mobile-works-gallery__image" src="assets/work/ops-autopilot-card.webp" alt="Ops Autopilot" width="800" height="1200" loading="lazy"></a>
-            <a href="#work-detail-2" class="mobile-works-gallery__slide" data-mobile-works-slide data-work-index="2" data-work-name="Learning in Public" data-work-desc="Notes on Xiaohongshu about the AI tools I actually use and the mistakes I make with them."><img class="mobile-works-gallery__image" src="assets/work/learning-in-public-card.webp" alt="Learning in Public" width="800" height="1200" loading="lazy"></a>
-            <a href="#work-detail-3" class="mobile-works-gallery__slide" data-mobile-works-slide data-work-index="3" data-work-name="This Website" data-work-desc="The page you are reading. Plain HTML, CSS and JavaScript, written by hand."><img class="mobile-works-gallery__image" src="assets/work/this-website-card.webp" alt="This Website" width="800" height="1200" loading="lazy"></a>
+            <a href="work/claude-setup-kit.html" class="mobile-works-gallery__slide" data-mobile-works-slide data-work-index="0" data-work-name="Claude Setup Kit" data-work-desc="A paid setup guide and one-click script that gets non-technical people onto Claude. Priced, sold and supported by me. 100+ paying users since 2025."><img class="mobile-works-gallery__image" src="assets/work/claude-setup-kit-card.webp" alt="Claude Setup Kit" width="800" height="1200" loading="lazy"></a>
+            <a href="work/ops-autopilot.html" class="mobile-works-gallery__slide" data-mobile-works-slide data-work-index="1" data-work-name="Ops Autopilot" data-work-desc="Scripts that took PUMA's daily Pinduoduo store routine at Baozun from three hours to thirty minutes, then handed to the team."><img class="mobile-works-gallery__image" src="assets/work/ops-autopilot-card.webp" alt="Ops Autopilot" width="800" height="1200" loading="lazy"></a>
+            <a href="work/learning-in-public.html" class="mobile-works-gallery__slide" data-mobile-works-slide data-work-index="2" data-work-name="Learning in Public" data-work-desc="Notes on Xiaohongshu about the AI tools I actually use and the mistakes I make with them."><img class="mobile-works-gallery__image" src="assets/work/learning-in-public-card.webp" alt="Learning in Public" width="800" height="1200" loading="lazy"></a>
+            <a href="work/this-website.html" class="mobile-works-gallery__slide" data-mobile-works-slide data-work-index="3" data-work-name="This Website" data-work-desc="The page you are reading. Plain HTML, CSS and JavaScript, written by hand."><img class="mobile-works-gallery__image" src="assets/work/this-website-card.webp" alt="This Website" width="800" height="1200" loading="lazy"></a>
           </div>
           <div class="mobile-works-gallery__meta">
-            <a href="#work-detail-0" class="mobile-works-gallery__active-link" data-mobile-works-active-link><span data-mobile-works-active-title>Claude Setup Kit</span><span aria-hidden="true">&#8599;</span></a>
+            <a href="work/claude-setup-kit.html" class="mobile-works-gallery__active-link" data-mobile-works-active-link><span data-mobile-works-active-title>Claude Setup Kit</span><span aria-hidden="true">&#8599;</span></a>
             <p class="mobile-works-gallery__description" data-mobile-works-description>A paid setup guide and one-click script that gets non-technical people onto Claude. Priced, sold and supported by me. 100+ paying users since 2025.</p>
           </div>
         </section>
 
-        <!-- Project details (the orbit cards and list link here) -->
-        <section class="work-detail" data-header-light-surface aria-label="Project details">
-          <article class="work-detail__item" id="work-detail-0">
-            <div class="work-detail__head"><span class="work-detail__index">(01)</span><h3 class="work-detail__title">Claude Setup Kit</h3><span class="work-detail__meta">Independent product · 2025 – now</span></div>
-            <div class="work-detail__body">
-              <p><b>Problem.</b> Plenty of people in China want to use Claude and get stuck on the network setup. The need was real and people were willing to pay, but nobody had packaged it into something they could finish on their own.</p>
-              <p><b>What I did.</b> Two tiers: a ¥19.9 step-by-step guide and a ¥49.9 one-click configuration script. Tiered pricing designed around willingness to pay and near-zero marginal cost, automated delivery, watermarked documents, plus hands-on support for the people who got stuck anyway.</p>
-              <p><b>Result.</b> 100+ paying users and ¥4,000+ in profit by August 2026. Survived platform reviews, duplicate-listing flags and a takedown, each one fixed by me.</p>
-              <p><b>What I learned.</b> Revenue tracked my hours one-to-one, because support needs a human online. Seeing that ceiling is why I started building an AI support agent for the shop.</p>
-            </div>
-          </article>
-          <article class="work-detail__item" id="work-detail-1">
-            <div class="work-detail__head"><span class="work-detail__index">(02)</span><h3 class="work-detail__title">Ops Autopilot</h3><span class="work-detail__meta">Baozun internship · PUMA on Pinduoduo · Mar – Jul 2026</span></div>
-            <div class="work-detail__body">
-              <p><b>Problem.</b> Every morning from nine to twelve went to the same loop: pull numbers, write the daily report, adjust prices, submit promotions. Necessary, and none of it needed judgement.</p>
-              <p><b>What I did.</b> Built a set of scripts with Claude Code and Codex that replaced the rule-based steps and left the decisions to a person. They ran for real every day of the internship, not as a one-off demo.</p>
-              <p><b>Result.</b> A full morning of work compressed to under thirty minutes, for four and a half months. The freed time went to the work that actually needed a human.</p>
-              <p><b>What I learned.</b> Writing the script was the easy part. Spotting which steps deserved to be replaced was the job.</p>
-            </div>
-          </article>
-          <article class="work-detail__item" id="work-detail-2">
-            <div class="work-detail__head"><span class="work-detail__index">(03)</span><h3 class="work-detail__title">Learning in Public</h3><span class="work-detail__meta">Xiaohongshu · ongoing</span></div>
-            <div class="work-detail__body">
-              <p>I write about the AI tools I genuinely use day to day and where they break. No tutorial voice, no hype. The point is to make the useful parts of the process findable by whoever needs them next.</p>
-              <p>It doubles as a public log of what I'm building, so anyone reading this site can see whether I'm still making things.</p>
-            </div>
-          </article>
-          <article class="work-detail__item" id="work-detail-3">
-            <div class="work-detail__head"><span class="work-detail__index">(04)</span><h3 class="work-detail__title">This Website</h3><span class="work-detail__meta">Hand-built · 2026</span></div>
-            <div class="work-detail__body">
-              <p>Plain HTML, CSS and JavaScript with GSAP for motion. No framework, no build step, no tracking. Built with Claude Code as a pair, and every line is one I can walk you through.</p>
-            </div>
-          </article>
-        </section>
       </section>
 
       <!-- Where I can help -->
