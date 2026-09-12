@@ -56,7 +56,7 @@ h1,h2,h3{font-weight:400}
 .loader__panel-fill{position:absolute;inset:0}
 .loader__panel-bottom{position:absolute;top:calc(100% - .6rem);left:-10%;width:120%;height:20vw;min-height:8rem;transform-origin:top;border-radius:0 0 50% 50%/0 0 100% 100%}
 .loader__container{position:relative;z-index:1;display:flex;width:100%;height:100%;align-items:center;justify-content:center}
-.loader__logo{--loader-slot-height:clamp(8rem,13vw,15rem);--loader-slot-gap:clamp(1.6rem,7vw,7rem);--loader-mask-extra:clamp(1.25rem,6vw,6rem);display:flex;align-items:center;justify-content:center;gap:0}
+.loader__logo{--loader-slot-height:clamp(8rem,13vw,15rem);--loader-slot-gap:clamp(1.6rem,7vw,7rem);--loader-mask-extra:clamp(1.25rem,6vw,6rem);display:flex;align-items:center;justify-content:center;gap:clamp(.2rem,.5vw,.6rem)}
 .loader__logo-column{height:calc(var(--loader-slot-height) + var(--loader-mask-extra));overflow:hidden}
 .loader__logo-track{display:flex;flex-direction:column;gap:var(--loader-slot-gap);will-change:transform;transform:translateZ(0);backface-visibility:hidden}
 .loader[data-load-state=booting] .loader__container{opacity:0}

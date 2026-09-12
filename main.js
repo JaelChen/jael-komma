@@ -104,14 +104,18 @@
     };
 
     document.fonts.ready.then(() => requestAnimationFrame(() => {
-      // Each column is only as wide as the letter it lands on, so "Jael" reads as a word once settled.
+      // Each column is as wide as the letter it lands on (full glyph box, so nothing gets clipped),
+      // then the whole word is shifted so "ae" sits on the screen's centre line.
       tracks.forEach(track => {
         const probe = track.lastElementChild.cloneNode(true);
-        probe.style.cssText = 'position:absolute;visibility:hidden;width:auto;flex:none;padding:0;letter-spacing:-.04em';
+        probe.style.cssText = 'position:absolute;visibility:hidden;width:auto;flex:none;padding:0 .02em';
         track.parentElement.appendChild(probe);
-        track.parentElement.style.width = `${Math.round(probe.getBoundingClientRect().width * 0.97)}px`; // glyph advance minus a hair, so the word sits as tight as normal text
+        track.parentElement.style.width = `${Math.ceil(probe.getBoundingClientRect().width)}px`;
         probe.remove();
       });
+      const logo = $('[data-load-logo]', wrap), cols = tracks.map(t => t.parentElement);
+      const a = cols[1].getBoundingClientRect(), e = cols[2].getBoundingClientRect();
+      gsap.set(logo, { x: innerWidth / 2 - (a.left + e.right) / 2 });
       const panelH = panel.getBoundingClientRect().height;
       const tl = gsap.timeline();
       const SPIN = 1.6, STEP = 0.45, SETTLE = 0.6;
