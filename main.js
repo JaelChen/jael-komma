@@ -577,30 +577,50 @@
     const W = COLS * CW, H = ROWS * CH;
     // Flat faces land on "c" like the reference; edges and sides pick up the other glyphs.
     const RAMP = ' .,:;i)(1t|uJXvYcccccccccCU[]';
-    const DEPTH = Math.round(H * 0.075), MAX_RY = 0.7, MAX_RX = 0.45;
+    const DEPTH = Math.round(H * 0.09), LAYERS = 22, MAX_RY = 1.15, MAX_RX = 0.85;
     const cvs = document.createElement('canvas'); cvs.width = W; cvs.height = H;
     const ctx = cvs.getContext('2d', { willReadFrequently: true });
-    let tx = 0, ty = 0, cx = 0, cy = 0, pointerIn = false, running = false, raf = 0;
+    let tx = 0, ty = 0, cx = 0, cy = 0, pointerSeen = false, running = false, raf = 0;
     const t0 = performance.now();
     const shade = v => `rgb(${Math.round(v * 255)},${Math.round(v * 255)},${Math.round(v * 255)})`;
+    // Pointer anywhere on the page: aim from the centre of the box toward it.
+    const aim = e => {
+      const r = box.getBoundingClientRect();
+      tx = gsap.utils.clamp(-1, 1, (e.clientX - (r.left + r.width / 2)) / (innerWidth * 0.5));
+      ty = gsap.utils.clamp(-1, 1, (e.clientY - (r.top + r.height / 2)) / (innerHeight * 0.5));
+      pointerSeen = true;
+    };
     const draw = now => {
       const t = (now - t0) / 1000;
-      // Idle drift when the pointer is away, ease toward the pointer when it is inside.
-      const gx = pointerIn ? tx : Math.sin(t * 0.55) * 0.4, gy = pointerIn ? ty : Math.cos(t * 0.42) * 0.25;
-      cx += (gx - cx) * 0.07; cy += (gy - cy) * 0.07;
-      const ry = cx * MAX_RY, rx = cy * MAX_RX;
-      const sx = Math.cos(ry), sy = Math.cos(rx), skew = Math.sin(ry) * Math.sin(rx) * 0.35;
-      const dx = -Math.sin(ry) * DEPTH, dy = Math.sin(rx) * DEPTH;   // extrusion direction
+      const gx = pointerSeen ? tx : Math.sin(t * 0.5) * 0.5, gy = pointerSeen ? ty : Math.cos(t * 0.38) * 0.35;
+      cx += (gx - cx) * 0.08; cy += (gy - cy) * 0.08;
+      // Orthographic 3D: rotate the slab about X then Y and drop z.
+      const ry = cx * MAX_RY, rx = -cy * MAX_RX;
+      const cX = Math.cos(rx), sX = Math.sin(rx), cY = Math.cos(ry), sY = Math.sin(ry);
+      const R = [                                // rows = rotated basis vectors (x, y, z)
+        [cY, 0, sY],
+        [sX * sY, cX, -sX * cY],
+        [-cX * sY, sX, cX * cY],
+      ];
+      const ux = R[0][0], uy = R[1][0], vx = R[0][1], vy = R[1][1];          // face axes projected
+      const nx = R[0][2], ny = R[1][2], nz = R[2][2];                        // face normal
+      const L = [0.35, -0.45, 0.82];                                          // light from top-left-front
+      const lambert = Math.max(0, nx * L[0] + ny * L[1] + nz * L[2]);
+      const front = nz > 0;                                                    // back face shows if turned past 90°
       ctx.clearRect(0, 0, W, H);
       ctx.font = `700 ${H * 0.58}px "BDO Grotesk", Helvetica, Arial, sans-serif`;
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      const layer = (k, color) => {
-        ctx.setTransform(sx, skew, 0, sy, W / 2 + dx * k / DEPTH, H / 2 + dy * k / DEPTH + H * 0.02);
+      const layer = (z, color) => {
+        // Point on the slab at depth z (0 = front face, -DEPTH = back face)
+        ctx.setTransform(ux, uy, vx, vy, W / 2 + nx * z, H / 2 + ny * z + H * 0.02);
         ctx.fillStyle = color; ctx.fillText('Jael', 0, 0);
       };
-      const side = 0.32 + 0.1 * Math.abs(Math.sin(ry));
-      for (let k = DEPTH; k > 0; k--) layer(k, shade(side - (k / DEPTH) * 0.08));
-      layer(0, shade(0.58 + 0.12 * Math.cos(ry) * Math.cos(rx)));
+      const sideLum = 0.3 + 0.12 * Math.abs(sY) + 0.08 * Math.abs(sX);
+      // Paint the slab far to near: side layers first, then whichever face is toward the viewer.
+      for (let i = LAYERS; i > 0; i--) {
+        layer(front ? -(i / LAYERS) * DEPTH : (i / LAYERS) * DEPTH - DEPTH, shade(sideLum - (i / LAYERS) * 0.06));
+      }
+      layer(front ? 0 : -DEPTH, shade(0.5 + 0.22 * lambert));
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       const d = ctx.getImageData(0, 0, W, H).data;
       let out = '';
@@ -619,8 +639,7 @@
       if (running) raf = requestAnimationFrame(draw);
     };
     const fit = () => { const r = box.getBoundingClientRect(); pre.style.transform = `scale(${Math.min(1, r.width / (COLS * 3.7))})`; };
-    box.addEventListener('pointermove', e => { const r = box.getBoundingClientRect(); pointerIn = true; tx = ((e.clientX - r.left) / r.width - 0.5) * 2; ty = ((e.clientY - r.top) / r.height - 0.5) * 2; });
-    box.addEventListener('pointerleave', () => { pointerIn = false; });
+    window.addEventListener('pointermove', aim, { passive: true });
     new IntersectionObserver(([e]) => { running = e.isIntersecting; if (running && !raf) raf = requestAnimationFrame(draw); if (!running) { cancelAnimationFrame(raf); raf = 0; } }).observe(box);
     window.addEventListener('resize', fit); fit();
     if (reduced) { running = false; draw(performance.now()); }
