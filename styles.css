@@ -17,7 +17,7 @@
   --color-carbon-black:#1f1f1f;
   --color-graphite:#363636;
   --color-alabaster-grey:#eaeaea;
-  --color-strawberry:#363636; /* accent kept monochrome: no orange anywhere */
+  --color-strawberry:#eb4b3d;
   --ease-osmo:cubic-bezier(.625,.05,0,1);
   --menu-width:30em;
 }
@@ -93,7 +93,7 @@ body[data-menu-status=open] .underlay-nav__cta-header,body[data-menu-status=clos
 .underlay-nav__list{display:flex;flex-direction:column;width:100%;list-style:none}
 .underlay-nav__list.is--small{gap:.75em}
 .underlay-nav__link-large{border-radius:.125em;width:100%;padding:.75em 1em;display:block}
-.underlay-nav__link-large.w--current{color:#ededed;background:var(--color-onyx)}
+.underlay-nav__link-large.w--current{color:#ededed;background:var(--color-strawberry)}
 .underlay-nav__link-label{letter-spacing:-.04em;font-size:clamp(1.9rem,2.2vw,3rem);line-height:1.08}
 .underlay-nav__bottom{display:flex;justify-content:flex-start;align-items:flex-start;width:100%;margin-top:auto;padding-top:1.5em;position:relative}
 .underlay-nav__bottom-col{display:flex;flex-direction:column;flex:1;gap:1em;align-items:flex-start}
