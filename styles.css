@@ -205,7 +205,7 @@ body[data-menu-status=open] .underlay-nav__cta-header,body[data-menu-status=clos
 .word-swap .new-word{transform:translateY(202%)}
 .intro__copy-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:1.5rem;row-gap:1.25rem;align-content:start;min-height:30vh;padding:0 2rem 4rem}
 .intro__label{grid-column:1/span 2;font-size:1.25rem;line-height:1.4}
-.intro-copy{grid-column:7/span 6;font-size:14px;line-height:1.35}
+.intro-copy{grid-column:7/span 6;font-size:1.25rem;line-height:1.4}
 .name-link{display:inline-block;position:relative;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:1px;text-decoration-skip-ink:auto}
 .name-link::after{content:"";position:absolute;inset:-.3em -.05em 0;background:var(--color-alabaster-grey);opacity:0;pointer-events:none;transition:opacity .2s ease}
 @media (hover:hover) and (pointer:fine){.name-link:hover::after{opacity:.5}}
@@ -223,7 +223,7 @@ body[data-menu-status=open] .underlay-nav__cta-header,body[data-menu-status=clos
   .intro__label{display:none}
   .intro-copy{grid-column:1}
 }
-@media (max-width:639px){.intro-quote{font-size:clamp(2.05rem,9.6vw,3.4rem)}.intro__scroll{transform:translateY(clamp(10rem,20svh,17rem))}}
+@media (max-width:639px){.intro-quote{font-size:clamp(2.05rem,9.6vw,3.4rem)}.intro__scroll{transform:translateY(clamp(10rem,20svh,17rem))}.intro-copy{font-size:14px;line-height:1.35}}
 
 /* ---------- Orbit tiles (featured projects) ---------- */
 .orbit-tiles-section{background:var(--color-alabaster-grey);color:var(--color-onyx);overflow:visible;position:relative}
