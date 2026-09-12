@@ -390,6 +390,8 @@ body[data-page-transition=active]{pointer-events:none}
 .page--work{background:var(--color-alabaster-grey);color:var(--color-onyx);min-height:100svh}
 .wd-hero{display:flex;flex-direction:column;justify-content:flex-start;padding-top:32svh;text-align:center}
 .wd-title{width:100%;margin:0 auto;padding-inline:clamp(1rem,2vw,2rem);font-size:clamp(5rem,10.8vw,12.5rem);font-weight:600;line-height:.82;letter-spacing:0;text-wrap:balance;visibility:hidden}
+/* SplitText line masks are only line-height tall (.82em), so give them room for ascenders and descenders */
+.wd-title>div{padding:.16em 0 .1em;margin:-.16em 0 -.1em}
 .wd-meta{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.85rem 1rem;width:100%;margin-top:clamp(3rem,6svh,5rem);padding:1.15rem clamp(1rem,2vw,2rem)}
 .wd-meta__item{display:flex;align-items:baseline;gap:.65rem;min-width:0;text-align:left}
 .wd-meta__label,.wd-meta__value{font-size:14px;line-height:1.25}
