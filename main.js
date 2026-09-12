@@ -569,35 +569,58 @@
     new IntersectionObserver(([e]) => { visible = e.isIntersecting; visible ? startAuto() : (stopAuto(), gsap.set(bar, { scaleX: 0 })); }, { threshold: 0.25 }).observe(section);
   }
 
-  /* ---------- ASCII monogram (canvas → text) ---------- */
+  /* ---------- ASCII "Jael": extruded 3D type rendered to text, turns toward the pointer ---------- */
   function initAscii(box) {
     const pre = $('[data-ascii]', box); if (!pre) return;
     const COLS = +box.dataset.asciiColumns || 146, ROWS = +box.dataset.asciiRows || 68;
-    const RAMP = ' .:-=+*#%@';
-    const cvs = document.createElement('canvas'); cvs.width = COLS; cvs.height = ROWS; const ctx = cvs.getContext('2d', { willReadFrequently: true });
-    let tx = 0, ty = 0, cx = 0, cy = 0, t0 = performance.now(), running = false, raf = 0;
+    const CW = 3, CH = 5;                       // canvas px per character cell (6px mono glyph is ~0.6 wide)
+    const W = COLS * CW, H = ROWS * CH;
+    // Flat faces land on "c" like the reference; edges and sides pick up the other glyphs.
+    const RAMP = ' .,:;i)(1t|uJXvYcccccccccCU[]';
+    const DEPTH = Math.round(H * 0.075), MAX_RY = 0.7, MAX_RX = 0.45;
+    const cvs = document.createElement('canvas'); cvs.width = W; cvs.height = H;
+    const ctx = cvs.getContext('2d', { willReadFrequently: true });
+    let tx = 0, ty = 0, cx = 0, cy = 0, pointerIn = false, running = false, raf = 0;
+    const t0 = performance.now();
+    const shade = v => `rgb(${Math.round(v * 255)},${Math.round(v * 255)},${Math.round(v * 255)})`;
     const draw = now => {
-      cx += (tx - cx) * 0.08; cy += (ty - cy) * 0.08;
       const t = (now - t0) / 1000;
-      ctx.clearRect(0, 0, COLS, ROWS);
-      // Lit sphere behind the letters gives the ramp something to shade.
-      const g = ctx.createRadialGradient(COLS / 2 + cx * 14 - 8, ROWS / 2 + cy * 10 - 10, 2, COLS / 2 + cx * 6, ROWS / 2 + cy * 4, ROWS * 0.62);
-      g.addColorStop(0, 'rgba(255,255,255,0.95)'); g.addColorStop(0.55, 'rgba(255,255,255,0.35)'); g.addColorStop(1, 'rgba(255,255,255,0)');
-      ctx.fillStyle = g; ctx.beginPath(); ctx.ellipse(COLS / 2 + cx * 6, ROWS / 2 + cy * 4, ROWS * 0.62 * 1.9, ROWS * 0.62, 0, 0, Math.PI * 2); ctx.fill();
-      ctx.save();
-      ctx.translate(COLS / 2, ROWS / 2);
-      ctx.transform(1, cy * 0.12 + Math.sin(t * 0.6) * 0.03, cx * 0.35 + Math.sin(t * 0.4) * 0.06, 0.5, cx * 6, cy * 3); // fake 3D tilt (rows are ~2x wider than tall)
-      ctx.fillStyle = '#fff'; ctx.font = `700 ${ROWS * 1.55}px "BDO Grotesk", Helvetica, Arial, sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.fillText('JC', 0, ROWS * 0.08);
-      ctx.restore();
-      const d = ctx.getImageData(0, 0, COLS, ROWS).data; let out = '';
-      for (let y = 0; y < ROWS; y++) { for (let x = 0; x < COLS; x++) { const a = d[(y * COLS + x) * 4 + 3] / 255, l = d[(y * COLS + x) * 4] / 255 * a; out += RAMP[Math.min(RAMP.length - 1, Math.round(l * (RAMP.length - 1)))]; } out += '\n'; }
+      // Idle drift when the pointer is away, ease toward the pointer when it is inside.
+      const gx = pointerIn ? tx : Math.sin(t * 0.55) * 0.4, gy = pointerIn ? ty : Math.cos(t * 0.42) * 0.25;
+      cx += (gx - cx) * 0.07; cy += (gy - cy) * 0.07;
+      const ry = cx * MAX_RY, rx = cy * MAX_RX;
+      const sx = Math.cos(ry), sy = Math.cos(rx), skew = Math.sin(ry) * Math.sin(rx) * 0.35;
+      const dx = -Math.sin(ry) * DEPTH, dy = Math.sin(rx) * DEPTH;   // extrusion direction
+      ctx.clearRect(0, 0, W, H);
+      ctx.font = `700 ${H * 0.58}px "BDO Grotesk", Helvetica, Arial, sans-serif`;
+      ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      const layer = (k, color) => {
+        ctx.setTransform(sx, skew, 0, sy, W / 2 + dx * k / DEPTH, H / 2 + dy * k / DEPTH + H * 0.02);
+        ctx.fillStyle = color; ctx.fillText('Jael', 0, 0);
+      };
+      const side = 0.32 + 0.1 * Math.abs(Math.sin(ry));
+      for (let k = DEPTH; k > 0; k--) layer(k, shade(side - (k / DEPTH) * 0.08));
+      layer(0, shade(0.58 + 0.12 * Math.cos(ry) * Math.cos(rx)));
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      const d = ctx.getImageData(0, 0, W, H).data;
+      let out = '';
+      for (let y = 0; y < ROWS; y++) {
+        for (let x = 0; x < COLS; x++) {
+          let sum = 0;
+          for (let j = 0; j < CH; j++) for (let i = 0; i < CW; i++) {
+            const p = ((y * CH + j) * W + x * CW + i) * 4; sum += d[p] * (d[p + 3] / 255);
+          }
+          const l = sum / (CW * CH * 255);
+          out += RAMP[Math.min(RAMP.length - 1, Math.round(l * (RAMP.length - 1)))];
+        }
+        out += '\n';
+      }
       pre.textContent = out;
       if (running) raf = requestAnimationFrame(draw);
     };
-    const fit = () => { const r = box.getBoundingClientRect(); const s = Math.min(r.width / (COLS * 3.6), r.height / (ROWS * 6)); pre.style.transform = `scale(${Math.max(0.6, s)})`; };
-    box.addEventListener('pointermove', e => { const r = box.getBoundingClientRect(); tx = ((e.clientX - r.left) / r.width - 0.5) * 2; ty = ((e.clientY - r.top) / r.height - 0.5) * 2; });
-    box.addEventListener('pointerleave', () => { tx = 0; ty = 0; });
+    const fit = () => { const r = box.getBoundingClientRect(); pre.style.transform = `scale(${Math.min(1, r.width / (COLS * 3.7))})`; };
+    box.addEventListener('pointermove', e => { const r = box.getBoundingClientRect(); pointerIn = true; tx = ((e.clientX - r.left) / r.width - 0.5) * 2; ty = ((e.clientY - r.top) / r.height - 0.5) * 2; });
+    box.addEventListener('pointerleave', () => { pointerIn = false; });
     new IntersectionObserver(([e]) => { running = e.isIntersecting; if (running && !raf) raf = requestAnimationFrame(draw); if (!running) { cancelAnimationFrame(raf); raf = 0; } }).observe(box);
     window.addEventListener('resize', fit); fit();
     if (reduced) { running = false; draw(performance.now()); }
