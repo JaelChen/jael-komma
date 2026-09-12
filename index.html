@@ -1,106 +1,502 @@
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f2f0e9">
-  <meta name="description" content="我是 Jael，坐标上海。从电商运营到 AI 自动化、独立产品与内容创作，我把想法变成真实可用的东西。这是我的项目、实验与实践记录。">
-  <title>Jael Chen — 保持清醒，持续创造。</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/archivo-variable.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=editorial-1">
-  <script src="motion.js?v=editorial-1" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jael Chen | Building Useful Things</title>
+<meta name="description" content="Jael Chen is a Shanghai-based e-commerce student who builds small AI tools that real people pay for. Open to AI-focused internships in Shanghai.">
+<meta name="theme-color" content="#eaeaea">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jael Chen | Building Useful Things">
+<meta property="og:description" content="Small AI tools that real people pay for. Shanghai, CN.">
+<meta property="og:image" content="assets/work/claude-setup-kit-hero.webp">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preload" href="assets/fonts/BDOGrotesk-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/BDOGrotesk-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <a class="skip-link" href="#main">跳到主要内容</a>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="Jael Chen，返回首页">jael<span class="brand-dot">.</span><span class="brand-caption">CHEN / 陈</span></a>
-    <nav aria-label="主要导航">
-      <a href="#work" data-section="work">实践 <sup>01</sup></a>
-      <a href="#about" data-section="about">关于 <sup>02</sup></a>
-      <a class="nav-contact" href="#contact" data-section="contact">聊聊 <span aria-hidden="true">↗</span></a>
-    </nav>
-  </header>
-  <main id="main">
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-topline mono"><span>INDEPENDENT MIND. HANDS-ON MAKER.</span><span class="location"><i></i> SHANGHAI, CN <time id="local-time" aria-label="上海时间"></time></span></div>
-      <div class="hero-composition">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="tiny-cross" aria-hidden="true">✳</span> 一个爱折腾的人，一些正在发生的事。</p>
-          <h1 id="hero-title"><span class="line"><span>保持清醒</span></span><span class="line"><span>持续<span class="serif-word">创造</span><span class="title-dot">.</span></span></span></h1>
-          <div class="hero-bottom-copy"><span class="hero-index mono">( INTRO — 00 )</span><p>把想法变成现实。<br>在产品、技术与真实生活之间，<br>找到值得动手的事。</p></div>
-          <a class="circle-link" href="#work" data-portal><span class="circle-arrow" aria-hidden="true">↘</span><span>看看我在做什么<span class="mono">EXPLORE MY WORK</span></span></a>
+<body data-initial-loader="pending" data-section-theme="inactive" data-footer-theme="inactive" data-menu-status="">
+
+<!-- ================= Loader ================= -->
+<div class="loader" data-load-wrap data-load-state="booting" aria-hidden="true">
+  <div class="loader__panel" data-load-panel>
+    <div class="loader__panel-fill" data-load-panel-fill></div>
+    <div class="loader__panel-bottom" data-load-panel-bottom></div>
+    <div class="loader__container" data-load-container>
+      <div class="loader__logo" data-load-logo>
+        <div class="loader__logo-column">
+          <div class="loader__logo-track" data-load-track="left"></div>
         </div>
-        <figure class="hero-portrait">
-          <div class="photo-mat"><img src="assets/hero-photo.webp" width="1447" height="1087" alt="Jael 在香港维多利亚港，回头望向城市" fetchpriority="high"><span class="photo-corner mono">FIG. 01 — IN THE REAL WORLD</span></div>
-          <figcaption><span>不只在屏幕前，也在世界里。</span><span class="mono">HONG KONG ↗</span></figcaption>
-          <div class="portrait-stamp" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="stamp-circle" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs><text><textPath href="#stamp-circle">ALWAYS CURIOUS · ALWAYS MAKING · </textPath></text></svg><span>✳</span></div>
-        </figure>
+        <div class="loader__logo-column">
+          <div class="loader__logo-track" data-load-track="right"></div>
+        </div>
       </div>
-      <div class="hero-name" aria-hidden="true"><span>JAEL CHEN</span><span class="name-flower">✳</span></div>
-      <div class="hero-footer mono"><span>AI × PRODUCT × EVERYDAY LIFE</span><span>SCROLL TO DISCOVER ↓</span><span>PERSONAL PORTFOLIO / 2026</span></div>
-    </section>
+    </div>
+  </div>
+</div>
 
-    <section class="work section-pad" id="work" aria-labelledby="work-title">
-      <div class="section-topline"><span class="mono">01 / SELECTED PRACTICE</span><span>从发现问题，到有人真正使用。</span></div>
-      <div class="section-heading reveal"><h2 id="work-title">想法，要有<span class="serif-word">下文</span><span class="accent">.</span></h2><p>一些产品，一些实验。<br>每一次动手，都从一个真实问题开始。</p></div>
-      <article class="project project-featured reveal">
-        <button class="project-art network-art" type="button" data-project="claude" aria-label="阅读 Claude 网络配置工具项目">
-          <span class="art-top mono"><span>INDEPENDENT PRODUCT</span><span>001 ↗</span></span>
-          <span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><span class="orbit orbit-three"></span>
-          <span class="network-node node-a mono">复杂配置</span><span class="network-node node-b mono">真实需求</span><span class="network-node node-c mono">持续交付</span>
-          <span class="network-core"><span class="core-symbol">↗</span><span class="mono">MAKE IT WORK.</span></span>
-          <span class="art-bottom"><span>让连接，<br>变得简单。</span><span class="art-caption mono">连接概念视觉<br>CONNECTION, SIMPLIFIED</span></span>
-          <span class="art-open" aria-hidden="true">阅读项目 ↗</span>
+<div class="static-noise" aria-hidden="true"></div>
+
+<!-- ================= Header + underlay nav ================= -->
+<div class="underlay-nav" data-site-header data-section-theme="inactive" data-footer-theme="inactive">
+  <div class="header-progressive-blur" data-header-blur aria-hidden="true">
+    <div class="header-progressive-blur__layer is--1"></div>
+    <div class="header-progressive-blur__layer is--2"></div>
+    <div class="header-progressive-blur__layer is--3"></div>
+    <div class="header-progressive-blur__layer is--4"></div>
+    <div class="header-progressive-blur__layer is--5"></div>
+  </div>
+
+  <header class="underlay-nav__header">
+    <div class="underlay-nav__container">
+      <a href="#top" class="underlay-nav__logo" aria-label="Jael Chen home" data-scroll-top>
+        <span class="underlay-nav__logo-mark" aria-hidden="true">J<span class="underlay-nav__logo-dot">.</span></span>
+      </a>
+      <div class="underlay-nav__actions">
+        <a href="mailto:2069490556@qq.com" class="button-043 underlay-nav__cta-header">
+          <span class="button-043__bg"><span class="button-043__bg-hover"></span></span>
+          <span class="button-043__inner">
+            <span class="button-043__mask"><span class="button-043__text">Say hello</span></span>
+            <span class="button-043__icon-wrap">
+              <span class="button-043__icon-bg"></span>
+              <span class="button-043__icon-mask"><span class="button-043__icon-list">
+                <svg class="button-043__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+                <svg class="button-043__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+                <svg class="button-043__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+              </span></span>
+            </span>
+          </span>
+        </a>
+        <button class="underlay-nav__toggle" data-underlay-nav-toggle aria-expanded="false" aria-label="open menu">
+          <span class="underlay-nav__toggle-icon">
+            <span class="underlay-nav__toggle-bar"></span>
+            <span class="underlay-nav__toggle-bar"></span>
+          </span>
         </button>
-        <div class="project-info"><div><p class="project-kicker mono">01 / 独立开发 · 产品交付</p><h3><button type="button" data-project="claude">Claude 网络配置工具 <span aria-hidden="true">↗</span></button></h3><p>从一个反复出现的配置难题出发，独立完成开发、定价、销售与售后，让工具走到真实用户手里。</p></div><div class="project-result"><strong>100<span>+</span></strong><span>付费用户</span></div></div>
-      </article>
-      <div class="project-pair">
-        <article class="project reveal">
-          <button class="project-art workflow-art" type="button" data-project="workflow" aria-label="阅读电商运营 AI 自动化项目">
-            <span class="art-top mono"><span>WORKFLOW EXPERIMENT</span><span>002 ↗</span></span>
-            <span class="workflow-paper paper-back"></span><span class="workflow-paper paper-front"><span class="paper-label mono">DAILY OPERATIONS</span><span class="paper-row">日报整理 <i>↗</i></span><span class="paper-row">价格调整 <i>↗</i></span><span class="paper-row">活动执行 <i>↗</i></span><span class="paper-footer mono">REPEAT LESS. CREATE MORE.</span></span>
-            <span class="workflow-badge" aria-hidden="true">✳</span>
-            <span class="art-bottom"><span>把重复，交给工具。</span><span class="art-caption mono">工作流概念视觉</span></span><span class="art-open" aria-hidden="true">阅读项目 ↗</span>
-          </button>
-          <div class="project-info"><div><p class="project-kicker mono">02 / AI 自动化 · 电商运营</p><h3><button type="button" data-project="workflow">从个人脚本，到团队工具 <span aria-hidden="true">↗</span></button></h3><p>从 PUMA 店铺运营里的重复流程入手，用 AI 辅助开发，把自己的效率工具交给团队。</p></div></div>
-        </article>
-        <article class="project project-offset reveal">
-          <button class="project-art journal-art" type="button" data-project="journal" aria-label="阅读公开实践与内容创作项目">
-            <span class="art-top mono"><span>LEARNING IN PUBLIC</span><span>003 ↗</span></span>
-            <span class="journal-type" aria-hidden="true">在做。<br><em>在记录。</em></span><span class="journal-star" aria-hidden="true">↗</span>
-            <span class="art-bottom"><span class="mono">NOTES FROM THE PROCESS</span><span class="art-caption">持续更新中 <i class="live-dot"></i></span></span><span class="art-open" aria-hidden="true">阅读项目 ↗</span>
-          </button>
-          <div class="project-info"><div><p class="project-kicker mono">03 / 内容创作 · 公开实践</p><h3><button type="button" data-project="journal">让过程也有价值 <span aria-hidden="true">↗</span></button></h3><p>记录项目、方法和踩过的坑。把实践公开出来，让有用的经验被需要它的人找到。</p></div></div>
-        </article>
       </div>
-      <div class="work-footnote mono"><span>LESS TALK. MORE MAKING.</span><span>以上项目整理自我的实践经历 / 持续生长中</span></div>
-    </section>
+    </div>
+  </header>
 
-    <div class="ribbon-viewport"><section class="manifesto" aria-label="保持好奇，持续创造"><div class="manifesto-track" aria-hidden="true"><span>STAY CURIOUS <i>✳</i> KEEP MAKING <i>✳</i> </span><span>STAY CURIOUS <i>✳</i> KEEP MAKING <i>✳</i> </span></div><button class="motion-toggle" type="button" aria-pressed="false">暂停循环动效 Ⅱ</button></section></div>
-
-    <section class="about section-pad" id="about" aria-labelledby="about-title">
-      <div class="section-topline"><span class="mono">02 / THE PERSON BEHIND</span><span>作品之外，也是一个普通人。</span></div>
-      <div class="about-grid">
-        <div class="about-visual reveal"><figure><img src="assets/about-photo.webp" alt="Jael 在意大利海边旅行时的自拍" width="1280" height="1707" loading="lazy"><figcaption><span class="mono">OFFLINE MOMENTS / ITALY</span><span>走出去，才有新的输入。</span></figcaption></figure><span class="photo-note">很外向的 I 人 ：）</span></div>
-        <div class="about-copy reveal"><p class="eyebrow">你好，我是 Jael。</p><h2 id="about-title">不急着定义自己，<br>先把事情<span class="serif-word">做出来</span><span class="accent">.</span></h2><div class="about-body"><p>我在上海，读电子商务。做过社群运营、网店运营，也做过自己的产品，还有一次没成功的创业。</p><p>在宝尊实习时，我开始用 AI 解决手边的重复工作。后来，我把一个真实的配置问题做成产品，从开发到售后，完整走了一遍。</p><p>不断尝试，快速迭代，永远是我人生的主旋律。这个网站记录的，就是我走到哪儿了。</p></div><div class="about-signoff"><span class="signature">Jael Chen</span><span class="mono">BASED IN SHANGHAI<br>OPEN TO WHAT'S NEXT ↗</span></div></div>
+  <nav class="underlay-nav__menu" data-underlay-nav-menu aria-label="Site">
+    <div class="underlay-nav__inner">
+      <ul class="underlay-nav__list">
+        <li data-reveal-l><a href="#top" class="underlay-nav__link-large w--current" data-menu-link><span class="underlay-nav__link-label">Home</span></a></li>
+        <li data-reveal-l><a href="#work" class="underlay-nav__link-large" data-menu-link><span class="underlay-nav__link-label">Work</span></a></li>
+        <li data-reveal-l><a href="#about" class="underlay-nav__link-large" data-menu-link><span class="underlay-nav__link-label">About</span></a></li>
+        <li data-reveal-l><a href="#contact" class="underlay-nav__link-large" data-menu-link><span class="underlay-nav__link-label">Contact</span></a></li>
+      </ul>
+      <div class="underlay-nav__bottom">
+        <div class="underlay-nav__bottom-col">
+          <div data-reveal-s><span class="underlay-nav__link-small is--faded">Elsewhere</span></div>
+          <ul class="underlay-nav__list is--small">
+            <li data-reveal-s><a href="https://www.xiaohongshu.com/" target="_blank" rel="noopener" class="underlay-nav__link-small underlay-nav__hover-link" data-underlay-hover-link><span class="underlay-nav__hover-label" data-underlay-hover-current>Xiaohongshu</span><span class="underlay-nav__hover-label" data-underlay-hover-next aria-hidden="true">Xiaohongshu</span></a></li>
+            <li data-reveal-s><a href="assets/wechat-qr-jael.png" target="_blank" rel="noopener" class="underlay-nav__link-small underlay-nav__hover-link" data-underlay-hover-link><span class="underlay-nav__hover-label" data-underlay-hover-current>WeChat</span><span class="underlay-nav__hover-label" data-underlay-hover-next aria-hidden="true">WeChat</span></a></li>
+          </ul>
+        </div>
+        <div class="underlay-nav__bottom-col">
+          <div data-reveal-s><span class="underlay-nav__link-small is--faded">Contact</span></div>
+          <ul class="underlay-nav__list is--small">
+            <li data-reveal-s><a href="mailto:2069490556@qq.com" class="underlay-nav__link-small underlay-nav__hover-link" data-underlay-hover-link><span class="underlay-nav__hover-label" data-underlay-hover-current>2069490556@qq.com</span><span class="underlay-nav__hover-label" data-underlay-hover-next aria-hidden="true">2069490556@qq.com</span></a></li>
+            <li data-reveal-s><a href="mailto:2069490556@qq.com?subject=Internship" class="underlay-nav__link-small underlay-nav__hover-link" data-underlay-hover-link><span class="underlay-nav__hover-label" data-underlay-hover-current>Hiring for Shanghai?</span><span class="underlay-nav__hover-label" data-underlay-hover-next aria-hidden="true">Hiring for Shanghai?</span></a></li>
+          </ul>
+        </div>
+        <div class="underlay-nav__bottom-border"></div>
       </div>
-      <div class="stats reveal"><div><strong>100<span>+</span></strong><span>付费用户 / 从需求到交付</span></div><div><strong>5<span>个月</span></strong><span>大厂实习 / 走进真实业务</span></div><div><strong>6<span>%</span></strong><span>专业排名前 / 保持学习</span></div><div><strong>4<span>个月</span></strong><span>欧洲交换 / 看看更大的世界</span></div></div>
-      <div class="capabilities"><div class="capability-intro reveal"><span class="mono">WHAT I BRING</span><h3>从问题开始，<br>一起把它做成。</h3><p>产品思维、运营经验和 AI 工具，<br>是我现在带在身上的工具箱。</p></div><div class="capability-list"><details class="reveal" open><summary><span class="mono">01</span>AI 工作流自动化 <span class="plus">+</span></summary><p>从重复工作中找切口，把流程梳理清楚，再用工具减少手动操作。先在自己的工作里验证，再交给团队使用。</p></details><details class="reveal"><summary><span class="mono">02</span>从需求做到 MVP <span class="plus">+</span></summary><p>把想法缩小成一个能验证的版本，用真实使用和反馈决定下一步，让每次迭代都有依据。</p></details><details class="reveal"><summary><span class="mono">03</span>电商与内容运营 <span class="plus">+</span></summary><p>从店铺的日常运营到内容记录，关注执行中的问题，用数据与反馈调整做法。</p></details><details class="reveal"><summary><span class="mono">04</span>独立产品交付 <span class="plus">+</span></summary><p>开发之外，也关心定价、销售、交付与售后。让产品到达用户手里，持续解决使用中的问题。</p></details></div></div>
-      <div class="exploring reveal"><span class="mono">CURRENTLY ASKING ↗</span><p>企业真正愿意付钱的 AI 场景是哪些？<br>传统生意里，哪些环节值得用 AI 重做一遍？</p><span class="exploring-star" aria-hidden="true">✳</span></div>
-    </section>
+    </div>
+  </nav>
 
-    <section class="contact section-pad" id="contact" aria-labelledby="contact-title">
-      <div class="section-topline"><span class="mono">03 / START A CONVERSATION</span><span><i class="live-dot"></i> 欢迎新的合作与交流</span></div>
-      <div class="contact-heading reveal"><p>有一个想法，或者只是想打个招呼？</p><h2 id="contact-title">不如，<span class="serif-word">聊聊</span><span class="contact-period">.</span></h2><a class="contact-arrow" href="mailto:2069490556@qq.com" aria-label="发送邮件给 Jael">↗</a></div>
-      <div class="contact-bottom"><div class="email-block"><span class="mono">DROP ME A LINE</span><a href="mailto:2069490556@qq.com">2069490556@qq.com ↗</a><button type="button" data-copy="2069490556@qq.com">复制邮箱 <span aria-hidden="true">⧉</span></button></div><div class="social-links"><button type="button" data-social="wechat">微信 <span>↗</span></button><button type="button" data-social="xiaohongshu">小红书 <span>↗</span></button><a href="#top" data-portal>回到顶部 <span>↑</span></a></div></div>
-      <footer><span>© 2026 JAEL CHEN</span><span>保持清醒，持续创造。</span><span class="mono">MADE WITH CURIOSITY ↗</span></footer>
-    </section>
-  </main>
-  <div class="page-progress" aria-hidden="true"></div>
-  <div class="portal" aria-hidden="true"></div>
-  <dialog class="case-dialog" id="case-dialog" aria-labelledby="case-title"><button class="dialog-close" type="button" data-close aria-label="关闭项目详情">关闭 <span>×</span></button><div id="case-content"></div></dialog>
-  <dialog class="social-dialog" id="social-dialog" aria-labelledby="social-title"><button class="dialog-close" type="button" data-close aria-label="关闭联系方式">关闭 <span>×</span></button><p class="mono">LET'S CONNECT</p><h2 id="social-title">微信联系</h2><img id="social-image" alt="Jael 的微信二维码" width="300" height="300"><p id="social-description"></p><button class="solid-button" id="social-copy" type="button" data-copy="Jaelane0729">复制账号</button></dialog>
-  <div class="toast" role="status" aria-live="polite"></div>
+  <div class="underlay-nav__overlay" data-underlay-nav-overlay>
+    <div class="underlay-nav__dark"></div>
+    <div class="underlay-nav__borders">
+      <div class="underlay-nav__border-row"><div class="underlay-nav__border"></div><div class="underlay-nav__corner"></div></div>
+      <div class="underlay-nav__border-row"><div class="underlay-nav__corner is--bottom"></div><div class="underlay-nav__border"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= Page ================= -->
+<div data-main>
+<main id="top" class="page">
+
+  <!-- Hero: fixed slideshow that the page scrolls over -->
+  <section class="home-hero" aria-label="Featured work" data-hero-slideshow>
+    <div class="home-hero__media" aria-hidden="true">
+      <div class="home-hero__image-stack" data-hero-parallax-image>
+        <div class="home-hero__slides">
+          <div class="home-hero__slide is--current" data-hero-slide data-index="0" data-href="#work" data-name="Claude Setup Kit">
+            <div class="home-hero__slide-inner" data-hero-slide-inner>
+              <img class="home-hero__image" src="assets/work/claude-setup-kit-hero.webp" alt="" width="1920" height="1080" loading="eager" decoding="async" data-hero-work-image="primary">
+              <img class="home-hero__image home-hero__image--hover" src="assets/work/claude-setup-kit-hero-hover.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async" data-hero-work-image="hover">
+            </div>
+          </div>
+          <div class="home-hero__slide" data-hero-slide data-index="1" data-href="#work" data-name="Ops Autopilot">
+            <div class="home-hero__slide-inner" data-hero-slide-inner>
+              <img class="home-hero__image" src="assets/work/ops-autopilot-hero.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async" data-hero-work-image="primary">
+              <img class="home-hero__image home-hero__image--hover" src="assets/work/ops-autopilot-hero-hover.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async" data-hero-work-image="hover">
+            </div>
+          </div>
+          <div class="home-hero__slide" data-hero-slide data-index="2" data-href="#work" data-name="Learning in Public">
+            <div class="home-hero__slide-inner" data-hero-slide-inner>
+              <img class="home-hero__image" src="assets/work/learning-in-public-hero.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async" data-hero-work-image="primary">
+              <img class="home-hero__image home-hero__image--hover" src="assets/work/learning-in-public-hero-hover.webp" alt="" width="1920" height="1080" loading="lazy" decoding="async" data-hero-work-image="hover">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="home-hero__shade" aria-hidden="true"></div>
+
+    <div class="home-hero__featured">
+      <span class="home-hero__featured-label" data-hero-reveal-line>Featured project</span>
+      <span class="home-hero__stack home-hero__stack--name">
+        <span class="home-hero__stack-item is--current" data-hero-work-name data-hero-reveal-line><span class="home-hero__stack-word" data-hero-word>Claude</span> <span class="home-hero__stack-word" data-hero-word>Setup</span> <span class="home-hero__stack-word" data-hero-word>Kit</span></span>
+        <span class="home-hero__stack-item" data-hero-work-name aria-hidden="true"><span class="home-hero__stack-word" data-hero-word>Ops</span> <span class="home-hero__stack-word" data-hero-word>Autopilot</span></span>
+        <span class="home-hero__stack-item" data-hero-work-name aria-hidden="true"><span class="home-hero__stack-word" data-hero-word>Learning</span> <span class="home-hero__stack-word" data-hero-word>in</span> <span class="home-hero__stack-word" data-hero-word>Public</span></span>
+      </span>
+      <span class="home-hero__stack home-hero__stack--year">
+        <span class="home-hero__stack-item is--current" data-hero-work-year data-hero-reveal-line><span class="home-hero__stack-word" data-hero-word>2025</span></span>
+        <span class="home-hero__stack-item" data-hero-work-year aria-hidden="true"><span class="home-hero__stack-word" data-hero-word>2026</span></span>
+        <span class="home-hero__stack-item" data-hero-work-year aria-hidden="true"><span class="home-hero__stack-word" data-hero-word>2026</span></span>
+      </span>
+      <a href="#work" class="button-043 home-hero__work-button" aria-label="View project: Claude Setup Kit" data-hero-reveal-line data-hero-work-trigger>
+        <span class="button-043__bg"><span class="button-043__bg-hover"></span></span>
+        <span class="button-043__inner">
+          <span class="button-043__mask"><span class="button-043__text">View project</span></span>
+          <span class="button-043__icon-wrap">
+            <span class="button-043__icon-bg"></span>
+            <span class="button-043__icon-mask"><span class="button-043__icon-list">
+              <svg class="button-043__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+              <svg class="button-043__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+              <svg class="button-043__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+            </span></span>
+          </span>
+        </span>
+      </a>
+    </div>
+
+    <p class="home-hero__statement" data-hero-reveal-line>
+      Jael Chen is a Shanghai-based e-commerce student who builds small AI tools that real people actually pay for.
+    </p>
+
+    <div class="home-hero__slideshow-nav">
+      <div class="home-hero__dots" role="group" aria-label="Featured work">
+        <button type="button" class="home-hero__dot is--current" data-hero-dot data-index="0" aria-label="Show Claude Setup Kit"></button>
+        <button type="button" class="home-hero__dot" data-hero-dot data-index="1" aria-label="Show Ops Autopilot"></button>
+        <button type="button" class="home-hero__dot" data-hero-dot data-index="2" aria-label="Show Learning in Public"></button>
+      </div>
+      <div class="home-hero__progress" aria-hidden="true"><span class="home-hero__progress-fill" data-hero-progress></span></div>
+    </div>
+  </section>
+
+  <div class="page__flow">
+    <div class="home-hero__spacer" data-home-hero-end aria-hidden="true"></div>
+
+    <div class="page__surface">
+
+      <!-- Intro quote -->
+      <section class="intro" data-header-light-surface>
+        <div class="intro__grid">
+          <div class="intro__quote-col" data-intro-trigger>
+            <div class="intro__scroll" data-intro-scroll>
+              <h1 class="intro-quote">
+                <span class="intro-quote__line">
+                  <span class="word-swap"><span class="old-word">You</span><span class="new-word">I</span></span>
+                  only
+                  <span class="word-swap is--left"><span class="old-word">want</span><span class="new-word">make</span></span>
+                </span>
+                <span class="intro-quote__line">what's useful.</span>
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="intro__copy-grid">
+          <p class="intro__label">Introduction</p>
+          <p class="intro-copy">
+            I'm <a href="#about" class="name-link">Jael</a>, an e-commerce student at Shanghai Polytechnic University, class of 2027. I build small tools with Claude Code and Codex, sell them, and handle the support myself.
+          </p>
+          <p class="intro-copy">
+            I work best with founders and small teams who have a repetitive process, a rough idea, and no time to turn either into something that runs on its own.
+          </p>
+        </div>
+      </section>
+
+      <!-- Featured projects -->
+      <section id="work" data-home-work-section>
+        <section class="orbit-tiles-section" data-orbit-section data-header-light-surface>
+          <h2 class="orbit-tiles__heading">Featured Projects</h2>
+          <div class="orbit-tiles" data-orbit-tiles-init>
+            <div class="orbit-tiles__left" data-orbit-left>
+              <div class="orbit-tiles__collection">
+                <div class="orbit-tiles__list" data-orbit-tiles-list>
+
+                  <div class="orbit-tiles__item" data-orbit-tiles-item data-work-index="0" data-work-name="Claude Setup Kit" data-work-desc="A paid setup guide and one-click script that gets non-technical people onto Claude. Priced, sold and supported by me. 100+ paying users since 2025." data-work-href="#work-detail-0">
+                    <button type="button" class="orbit-card-btn" data-orbit-card-btn aria-label="View selected work">
+                      <div class="orbit-card">
+                        <div class="orbit-card__tilt" data-orbit-card-tilt data-max-rotate="14">
+                          <div class="orbit-card__media" data-orbit-card-media><img class="orbit-cover-image" src="assets/work/claude-setup-kit-card.webp" alt="" width="800" height="1200" loading="lazy" decoding="async"></div>
+                          <div class="orbit-card__title-layer"><div class="orbit-card__title-label" data-orbit-card-title-label><span data-orbit-card-title>Claude Setup Kit</span></div></div>
+                          <div class="orbit-card__cta-layer"><div class="orbit-card__cta-label" data-orbit-card-cta-label><span>Click to view</span><svg class="orbit-card__cta-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.6"/></svg></div></div>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+
+                  <div class="orbit-tiles__item" data-orbit-tiles-item data-work-index="1" data-work-name="Ops Autopilot" data-work-desc="Scripts that took PUMA's daily Pinduoduo store routine at Baozun from three hours to thirty minutes, then handed to the team. Ran every day for four and a half months." data-work-href="#work-detail-1">
+                    <button type="button" class="orbit-card-btn" data-orbit-card-btn aria-label="View selected work">
+                      <div class="orbit-card">
+                        <div class="orbit-card__tilt" data-orbit-card-tilt data-max-rotate="14">
+                          <div class="orbit-card__media" data-orbit-card-media><img class="orbit-cover-image" src="assets/work/ops-autopilot-card.webp" alt="" width="800" height="1200" loading="lazy" decoding="async"></div>
+                          <div class="orbit-card__title-layer"><div class="orbit-card__title-label" data-orbit-card-title-label><span data-orbit-card-title>Ops Autopilot</span></div></div>
+                          <div class="orbit-card__cta-layer"><div class="orbit-card__cta-label" data-orbit-card-cta-label><span>Click to view</span><svg class="orbit-card__cta-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.6"/></svg></div></div>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+
+                  <div class="orbit-tiles__item" data-orbit-tiles-item data-work-index="2" data-work-name="Learning in Public" data-work-desc="Notes on Xiaohongshu about the AI tools I actually use and the mistakes I make with them. No tutorials, just the process." data-work-href="#work-detail-2">
+                    <button type="button" class="orbit-card-btn" data-orbit-card-btn aria-label="View selected work">
+                      <div class="orbit-card">
+                        <div class="orbit-card__tilt" data-orbit-card-tilt data-max-rotate="14">
+                          <div class="orbit-card__media" data-orbit-card-media><img class="orbit-cover-image" src="assets/work/learning-in-public-card.webp" alt="" width="800" height="1200" loading="lazy" decoding="async"></div>
+                          <div class="orbit-card__title-layer"><div class="orbit-card__title-label" data-orbit-card-title-label><span data-orbit-card-title>Learning in Public</span></div></div>
+                          <div class="orbit-card__cta-layer"><div class="orbit-card__cta-label" data-orbit-card-cta-label><span>Click to view</span><svg class="orbit-card__cta-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.6"/></svg></div></div>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+
+                  <div class="orbit-tiles__item" data-orbit-tiles-item data-work-index="3" data-work-name="This Website" data-work-desc="The page you are reading. Plain HTML, CSS and JavaScript, written by hand, no framework, no build step. Every line is one I can explain." data-work-href="#work-detail-3">
+                    <button type="button" class="orbit-card-btn" data-orbit-card-btn aria-label="View selected work">
+                      <div class="orbit-card">
+                        <div class="orbit-card__tilt" data-orbit-card-tilt data-max-rotate="14">
+                          <div class="orbit-card__media" data-orbit-card-media><img class="orbit-cover-image" src="assets/work/this-website-card.webp" alt="" width="800" height="1200" loading="lazy" decoding="async"></div>
+                          <div class="orbit-card__title-layer"><div class="orbit-card__title-label" data-orbit-card-title-label><span data-orbit-card-title>This Website</span></div></div>
+                          <div class="orbit-card__cta-layer"><div class="orbit-card__cta-label" data-orbit-card-cta-label><span>Click to view</span><svg class="orbit-card__cta-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.6"/></svg></div></div>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="orbit-tiles__right">
+              <div class="orbit-tiles__content">
+                <div class="orbit-tiles__info" data-orbit-info><p class="orbit-tiles__info-desc" data-orbit-info-desc></p></div>
+                <div class="orbit-tiles__list-wrap">
+                  <div class="orbit-list" data-directional-hover data-type="y">
+                    <a href="#work-detail-0" class="orbit-list__item" data-directional-hover-item data-orbit-list-item data-work-index="0"><div class="orbit-list__hover-tile" data-directional-hover-tile></div><span class="orbit-list__name">Claude Setup Kit</span></a>
+                    <a href="#work-detail-1" class="orbit-list__item" data-directional-hover-item data-orbit-list-item data-work-index="1"><div class="orbit-list__hover-tile" data-directional-hover-tile></div><span class="orbit-list__name">Ops Autopilot</span></a>
+                    <a href="#work-detail-2" class="orbit-list__item" data-directional-hover-item data-orbit-list-item data-work-index="2"><div class="orbit-list__hover-tile" data-directional-hover-tile></div><span class="orbit-list__name">Learning in Public</span></a>
+                    <a href="#work-detail-3" class="orbit-list__item" data-directional-hover-item data-orbit-list-item data-work-index="3"><div class="orbit-list__hover-tile" data-directional-hover-tile></div><span class="orbit-list__name">This Website</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Mobile fallback gallery (≤900px) -->
+        <section class="mobile-works-gallery" data-mobile-works-gallery data-header-light-surface>
+          <h2 class="mobile-works-gallery__heading">Featured Projects</h2>
+          <div class="mobile-works-gallery__track" data-mobile-works-track aria-label="Selected work images">
+            <a href="#work-detail-0" class="mobile-works-gallery__slide" data-mobile-works-slide data-work-index="0" data-work-name="Claude Setup Kit" data-work-desc="A paid setup guide and one-click script that gets non-technical people onto Claude. Priced, sold and supported by me. 100+ paying users since 2025."><img class="mobile-works-gallery__image" src="assets/work/claude-setup-kit-card.webp" alt="Claude Setup Kit" width="800" height="1200" loading="lazy"></a>
+            <a href="#work-detail-1" class="mobile-works-gallery__slide" data-mobile-works-slide data-work-index="1" data-work-name="Ops Autopilot" data-work-desc="Scripts that took PUMA's daily Pinduoduo store routine at Baozun from three hours to thirty minutes, then handed to the team."><img class="mobile-works-gallery__image" src="assets/work/ops-autopilot-card.webp" alt="Ops Autopilot" width="800" height="1200" loading="lazy"></a>
+            <a href="#work-detail-2" class="mobile-works-gallery__slide" data-mobile-works-slide data-work-index="2" data-work-name="Learning in Public" data-work-desc="Notes on Xiaohongshu about the AI tools I actually use and the mistakes I make with them."><img class="mobile-works-gallery__image" src="assets/work/learning-in-public-card.webp" alt="Learning in Public" width="800" height="1200" loading="lazy"></a>
+            <a href="#work-detail-3" class="mobile-works-gallery__slide" data-mobile-works-slide data-work-index="3" data-work-name="This Website" data-work-desc="The page you are reading. Plain HTML, CSS and JavaScript, written by hand."><img class="mobile-works-gallery__image" src="assets/work/this-website-card.webp" alt="This Website" width="800" height="1200" loading="lazy"></a>
+          </div>
+          <div class="mobile-works-gallery__meta">
+            <a href="#work-detail-0" class="mobile-works-gallery__active-link" data-mobile-works-active-link><span data-mobile-works-active-title>Claude Setup Kit</span><span aria-hidden="true">&#8599;</span></a>
+            <p class="mobile-works-gallery__description" data-mobile-works-description>A paid setup guide and one-click script that gets non-technical people onto Claude. Priced, sold and supported by me. 100+ paying users since 2025.</p>
+          </div>
+        </section>
+
+        <!-- Project details (the orbit cards and list link here) -->
+        <section class="work-detail" data-header-light-surface aria-label="Project details">
+          <article class="work-detail__item" id="work-detail-0">
+            <div class="work-detail__head"><span class="work-detail__index">(01)</span><h3 class="work-detail__title">Claude Setup Kit</h3><span class="work-detail__meta">Independent product · 2025 – now</span></div>
+            <div class="work-detail__body">
+              <p><b>Problem.</b> Plenty of people in China want to use Claude and get stuck on the network setup. The need was real and people were willing to pay, but nobody had packaged it into something they could finish on their own.</p>
+              <p><b>What I did.</b> Two tiers: a ¥19.9 step-by-step guide and a ¥49.9 one-click configuration script. Tiered pricing designed around willingness to pay and near-zero marginal cost, automated delivery, watermarked documents, plus hands-on support for the people who got stuck anyway.</p>
+              <p><b>Result.</b> 100+ paying users and ¥4,000+ in profit by August 2026. Survived platform reviews, duplicate-listing flags and a takedown, each one fixed by me.</p>
+              <p><b>What I learned.</b> Revenue tracked my hours one-to-one, because support needs a human online. Seeing that ceiling is why I started building an AI support agent for the shop.</p>
+            </div>
+          </article>
+          <article class="work-detail__item" id="work-detail-1">
+            <div class="work-detail__head"><span class="work-detail__index">(02)</span><h3 class="work-detail__title">Ops Autopilot</h3><span class="work-detail__meta">Baozun internship · PUMA on Pinduoduo · Mar – Jul 2026</span></div>
+            <div class="work-detail__body">
+              <p><b>Problem.</b> Every morning from nine to twelve went to the same loop: pull numbers, write the daily report, adjust prices, submit promotions. Necessary, and none of it needed judgement.</p>
+              <p><b>What I did.</b> Built a set of scripts with Claude Code and Codex that replaced the rule-based steps and left the decisions to a person. They ran for real every day of the internship, not as a one-off demo.</p>
+              <p><b>Result.</b> A full morning of work compressed to under thirty minutes, for four and a half months. The freed time went to the work that actually needed a human.</p>
+              <p><b>What I learned.</b> Writing the script was the easy part. Spotting which steps deserved to be replaced was the job.</p>
+            </div>
+          </article>
+          <article class="work-detail__item" id="work-detail-2">
+            <div class="work-detail__head"><span class="work-detail__index">(03)</span><h3 class="work-detail__title">Learning in Public</h3><span class="work-detail__meta">Xiaohongshu · ongoing</span></div>
+            <div class="work-detail__body">
+              <p>I write about the AI tools I genuinely use day to day and where they break. No tutorial voice, no hype. The point is to make the useful parts of the process findable by whoever needs them next.</p>
+              <p>It doubles as a public log of what I'm building, so anyone reading this site can see whether I'm still making things.</p>
+            </div>
+          </article>
+          <article class="work-detail__item" id="work-detail-3">
+            <div class="work-detail__head"><span class="work-detail__index">(04)</span><h3 class="work-detail__title">This Website</h3><span class="work-detail__meta">Hand-built · 2026</span></div>
+            <div class="work-detail__body">
+              <p>Plain HTML, CSS and JavaScript with GSAP for motion. No framework, no build step, no tracking. Built with Claude Code as a pair, and every line is one I can walk you through.</p>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <!-- Where I can help -->
+      <section id="about" class="services-section" data-services-section data-header-light-surface>
+        <div class="services-section__grid">
+          <p class="services-section__eyebrow"><span class="services-section__dot" aria-hidden="true"></span><span>Where I can help</span></p>
+          <div class="services-section__body">
+            <div class="services-section__list" role="list" aria-label="What I bring">
+              <div class="services-section__entry" role="listitem">
+                <button type="button" class="services-section__item" data-services-item data-active="true" data-expanded="false" aria-expanded="false" aria-controls="services-panel-0"><span class="services-section__item-index" aria-hidden="true">(01)</span><span class="services-section__item-title">AI Workflow Automation</span></button>
+                <div id="services-panel-0" class="services-section__panel" data-services-panel><div class="services-section__panel-inner"><p class="services-section__copy" data-services-copy>Find the repetitive slice of a job, map the process, then replace the rule-based steps with a script that runs every day. Proven on my own desk first, then handed to the team.</p></div></div>
+              </div>
+              <div class="services-section__entry" role="listitem">
+                <button type="button" class="services-section__item" data-services-item data-expanded="false" aria-expanded="false" aria-controls="services-panel-1"><span class="services-section__item-index" aria-hidden="true">(02)</span><span class="services-section__item-title">Idea to MVP</span></button>
+                <div id="services-panel-1" class="services-section__panel" data-services-panel><div class="services-section__panel-inner"><p class="services-section__copy" data-services-copy>Shrink the idea to the smallest version a stranger can try, then let real usage and feedback decide what comes next. Every iteration gets a reason.</p></div></div>
+              </div>
+              <div class="services-section__entry" role="listitem">
+                <button type="button" class="services-section__item" data-services-item data-expanded="false" aria-expanded="false" aria-controls="services-panel-2"><span class="services-section__item-index" aria-hidden="true">(03)</span><span class="services-section__item-title">E-commerce &amp; Content Ops</span></button>
+                <div id="services-panel-2" class="services-section__panel" data-services-panel><div class="services-section__panel-inner"><p class="services-section__copy" data-services-copy>From a store's daily routine to public notes about the work. I watch what breaks in execution and adjust with data and feedback rather than opinion.</p></div></div>
+              </div>
+              <div class="services-section__entry" role="listitem">
+                <button type="button" class="services-section__item" data-services-item data-expanded="false" aria-expanded="false" aria-controls="services-panel-3"><span class="services-section__item-index" aria-hidden="true">(04)</span><span class="services-section__item-title">Independent Delivery</span></button>
+                <div id="services-panel-3" class="services-section__panel" data-services-panel><div class="services-section__panel-inner"><p class="services-section__copy" data-services-copy>Beyond building: pricing, selling, delivering and supporting. Getting the product into a user's hands and keeping it working once it is there.</p></div></div>
+              </div>
+            </div>
+            <div class="services-section__visual" aria-hidden="true">
+              <div class="services-section__preview" data-services-preview>
+                <img class="services-section__image" data-services-image data-active="true" src="assets/work/ops-autopilot-card.webp" alt="" loading="lazy">
+                <img class="services-section__image" data-services-image src="assets/work/claude-setup-kit-card.webp" alt="" loading="lazy">
+                <img class="services-section__image" data-services-image src="assets/hero-photo.webp" alt="" loading="lazy">
+                <img class="services-section__image" data-services-image src="assets/about-photo.webp" alt="" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Milestones slider (same mechanics as a testimonials slider) -->
+      <section class="testimonials" data-testimonials data-header-light-surface aria-label="Milestones">
+        <div class="testimonials__grid">
+          <div class="testimonials__left">
+            <div class="testimonials__top">
+              <div class="testimonials__arrows">
+                <button type="button" class="testimonials__arrow testimonials__arrow--prev" data-testimonials-prev aria-label="Previous"><svg class="testimonials__arrow-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.4"/></svg></button>
+                <button type="button" class="testimonials__arrow" data-testimonials-next aria-label="Next"><svg class="testimonials__arrow-icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.4"/></svg></button>
+              </div>
+              <p class="testimonials__counter"><span data-testimonials-counter>01</span>/04</p>
+            </div>
+            <div class="testimonials__quotes" aria-live="polite">
+              <blockquote class="testimonials__quote" data-testimonial-quote data-active="true"><p>&rdquo;A hundred strangers paid for something I built, then came back with questions. Answering them taught me more about product than any course did.&rdquo;</p></blockquote>
+              <blockquote class="testimonials__quote" data-testimonial-quote><p>&rdquo;Five months inside a real business at Baozun. The scripts I left behind are still running, which is the only review I need.&rdquo;</p></blockquote>
+              <blockquote class="testimonials__quote" data-testimonial-quote><p>&rdquo;Top 6% of my programme while shipping on the side. Grades were never the goal, but they show I can keep two things moving at once.&rdquo;</p></blockquote>
+              <blockquote class="testimonials__quote" data-testimonial-quote><p>&rdquo;Four months on exchange at the University of Ruse, Bulgaria. Going somewhere unfamiliar is still the fastest way I know to get new input.&rdquo;</p></blockquote>
+            </div>
+            <div class="testimonials__progress" aria-hidden="true"><span class="testimonials__progress-fill" data-testimonials-progress></span></div>
+          </div>
+          <div class="testimonials__right">
+            <figure class="testimonials__person" data-testimonial-person data-active="true"><img class="testimonials__portrait" src="assets/about-photo.webp" alt="" loading="lazy"><figcaption><p class="testimonials__name">100+ paying users</p><p class="testimonials__job">Claude Setup Kit, 2025 – now</p></figcaption></figure>
+            <figure class="testimonials__person" data-testimonial-person><img class="testimonials__portrait" src="assets/hero-photo.webp" alt="" loading="lazy"><figcaption><p class="testimonials__name">5-month internship</p><p class="testimonials__job">Baozun, PUMA e-commerce</p></figcaption></figure>
+            <figure class="testimonials__person" data-testimonial-person><img class="testimonials__portrait" src="assets/about-photo.webp" alt="" loading="lazy"><figcaption><p class="testimonials__name">Top 6% in programme</p><p class="testimonials__job">E-commerce, SSPU, class of 2027</p></figcaption></figure>
+            <figure class="testimonials__person" data-testimonial-person><img class="testimonials__portrait" src="assets/hero-photo.webp" alt="" loading="lazy"><figcaption><p class="testimonials__name">4 months in Europe</p><p class="testimonials__job">Exchange, University of Ruse</p></figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section id="contact" class="project-cta-section" data-header-light-surface>
+        <div class="project-cta-section__grid">
+          <div class="project-cta-section__content">
+            <h2 class="project-cta-section__heading"><span class="project-cta-section__line">Have something</span><span class="project-cta-section__line">worth building?</span></h2>
+            <a href="mailto:2069490556@qq.com" class="button-043 project-cta-section__button">
+              <span class="button-043__bg"><span class="button-043__bg-hover"></span></span>
+              <span class="button-043__inner">
+                <span class="button-043__mask"><span class="button-043__text">Let's talk</span></span>
+                <span class="button-043__icon-wrap">
+                  <span class="button-043__icon-bg"></span>
+                  <span class="button-043__icon-mask"><span class="button-043__icon-list">
+                    <svg class="button-043__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+                    <svg class="button-043__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+                    <svg class="button-043__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
+                  </span></span>
+                </span>
+              </span>
+            </a>
+          </div>
+          <div class="project-cta-section__ascii-wrap">
+            <div class="project-cta-section__ascii-box" data-ascii-box data-ascii-columns="146" data-ascii-rows="68">
+              <pre class="project-cta-section__ascii" data-ascii aria-hidden="true"></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <section id="site-footer" class="site-footer-block" data-footer-parallax-block>
+        <div class="site-footer-wrap" data-footer-parallax>
+          <footer class="site-footer" data-footer-parallax-inner>
+            <div class="site-footer__grid">
+              <div class="site-footer__top">
+                <div class="site-footer__column">
+                  <p class="site-footer__eyebrow" data-footer-reveal-line>Contact info</p>
+                  <div class="site-footer__links">
+                    <a href="mailto:2069490556@qq.com" class="site-footer__link" data-footer-hover-link><span class="site-footer__link-label" data-footer-hover-current data-footer-reveal-line>2069490556@qq.com</span><span class="site-footer__link-label" data-footer-hover-next aria-hidden="true">2069490556@qq.com</span></a>
+                    <a href="assets/wechat-qr-jael.png" target="_blank" rel="noopener" class="site-footer__link" data-footer-hover-link><span class="site-footer__link-label" data-footer-hover-current data-footer-reveal-line>WeChat</span><span class="site-footer__link-label" data-footer-hover-next aria-hidden="true">WeChat</span></a>
+                    <a href="https://www.xiaohongshu.com/" target="_blank" rel="noopener" class="site-footer__link" data-footer-hover-link><span class="site-footer__link-label" data-footer-hover-current data-footer-reveal-line>Xiaohongshu</span><span class="site-footer__link-label" data-footer-hover-next aria-hidden="true">Xiaohongshu</span></a>
+                  </div>
+                </div>
+                <div class="site-footer__column">
+                  <p class="site-footer__eyebrow" data-footer-reveal-line>Navigation</p>
+                  <div class="site-footer__links">
+                    <a href="#top" class="site-footer__link" data-footer-hover-link data-scroll-top><span class="site-footer__link-label" data-footer-hover-current data-footer-reveal-line>HOME</span><span class="site-footer__link-label" data-footer-hover-next aria-hidden="true">HOME</span></a>
+                    <a href="#work" class="site-footer__link" data-footer-hover-link><span class="site-footer__link-label" data-footer-hover-current data-footer-reveal-line>WORK</span><span class="site-footer__link-label" data-footer-hover-next aria-hidden="true">WORK</span></a>
+                    <a href="#about" class="site-footer__link" data-footer-hover-link><span class="site-footer__link-label" data-footer-hover-current data-footer-reveal-line>ABOUT</span><span class="site-footer__link-label" data-footer-hover-next aria-hidden="true">ABOUT</span></a>
+                    <a href="#contact" class="site-footer__link" data-footer-hover-link><span class="site-footer__link-label" data-footer-hover-current data-footer-reveal-line>CONTACT</span><span class="site-footer__link-label" data-footer-hover-next aria-hidden="true">CONTACT</span></a>
+                  </div>
+                </div>
+                <div class="site-footer__column">
+                  <p class="site-footer__eyebrow" data-footer-reveal-line>Based in</p>
+                  <div class="site-footer__links">
+                    <span data-footer-reveal-line>Shanghai, CN</span>
+                    <span data-footer-reveal-line><span data-footer-live-time>00:00 GMT+8</span></span>
+                    <span data-footer-reveal-line>31.2304° N, 121.4737° E</span>
+                  </div>
+                </div>
+                <div class="site-footer__column">
+                  <p class="site-footer__eyebrow" data-footer-reveal-line>Colophon</p>
+                  <div class="site-footer__links">
+                    <span data-footer-reveal-line>Copyright © 2026 Jael Chen</span>
+                    <span data-footer-reveal-line>Typeset in BDO Grotesk</span>
+                    <span data-footer-reveal-line>No framework, no tracking</span>
+                  </div>
+                </div>
+              </div>
+              <div class="site-footer__bottom" data-site-footer-bottom>
+                <p class="site-footer__wordmark" data-site-footer-wordmark aria-label="Jael Chen"><span>JAEL</span><span>CHEN</span></p>
+              </div>
+            </div>
+          </footer>
+          <div class="site-footer__dark" data-footer-parallax-dark></div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</main>
+</div>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/SplitText.min.js"></script>
+<script src="assets/vendor/lenis.min.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
