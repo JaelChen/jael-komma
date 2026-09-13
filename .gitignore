@@ -1,4 +1,6 @@
 tools/
 rollback-backups/
+review-editorial/
 .wrangler/
 node_modules/
+*.png
