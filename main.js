@@ -156,6 +156,9 @@
     if (n < 2 || !progress) return;
     const DUR = 6, SLIDE = 1.5, STAG = 0.08, YP = 125, PAR = 75;
     let cur = 0, busy = false, hovering = false, started = false, prog = null;
+    // Light slides flip the hero copy and the header to onyx.
+    const setTone = i => { root.dataset.heroTone = slides[i].dataset.tone || 'dark'; root.dispatchEvent(new Event('hero:tone')); };
+    setTone(0);
     const words = el => { const w = $$('[data-hero-word]', el); return w.length ? w : [el]; };
     const prime = arr => arr.forEach((el, i) => { if (i !== cur) { gsap.set(el, { autoAlpha: 1 }); gsap.set(words(el), { yPercent: YP }); } });
     prime(names); prime(years);
@@ -192,6 +195,7 @@
       const prev = cur; dir = dir ?? (next > prev ? 1 : -1);
       busy = true; cur = next;
       dots.forEach((d, i) => d.classList.toggle('is--current', i === next));
+      setTone(next);
       if (trigger) { trigger.href = slides[next].dataset.href; trigger.setAttribute('aria-label', `View project: ${slides[next].dataset.name}`); }
       setHover(prev, false, true); setHover(next, hovering, true);
       swapStack(names, prev, next);
@@ -236,7 +240,8 @@
       paint();
     }
     const triggers = [];
-    function sync() { const v = triggers.some(t => t.isActive) ? 'active' : 'inactive'; header.dataset.sectionTheme = v; body.dataset.sectionTheme = v; }
+    function sync() { const v = triggers.some(t => t.isActive) || (hero?.dataset.heroTone === 'light' && !hero.dataset.heroPaint && scrollY < innerHeight * 0.5) ? 'active' : 'inactive'; header.dataset.sectionTheme = v; body.dataset.sectionTheme = v; }
+    hero?.addEventListener('hero:tone', sync);
     surfaces.forEach(el => triggers.push(ScrollTrigger.create({ trigger: el, start: 'top top+=96', end: 'bottom top+=96', onToggle: sync, onRefresh: sync })));
     sync();
 
