@@ -1,4 +1,5 @@
-tools/
+tools/*
+!tools/posters/
 rollback-backups/
 review-editorial/
 .wrangler/

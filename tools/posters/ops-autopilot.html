@@ -1,0 +1,44 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>poster · ops autopilot</title>
+<style>
+@font-face{font-family:"BDO Grotesk";src:url(../../assets/fonts/BDOGrotesk-Medium.woff2) format("woff2");font-weight:500}
+@font-face{font-family:"BDO Grotesk";src:url(../../assets/fonts/BDOGrotesk-DemiBold.woff2) format("woff2");font-weight:600}
+:root{--onyx:#131313;--ala:#eaeaea;--red:#eb4b3d;--mono:"Cascadia Mono","JetBrains Mono","Consolas","Microsoft YaHei UI",monospace}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#fff;font-family:"BDO Grotesk",sans-serif;color:var(--ala)}
+.stage{position:relative;width:1920px;height:1080px}
+.win{position:absolute;left:470px;top:104px;width:980px;border-radius:14px;background:#0d0d0d;box-shadow:0 40px 90px -30px #00000040,0 0 0 1px #00000010;overflow:hidden}
+.bar{height:56px;display:flex;align-items:center;gap:18px;padding:0 24px;background:#161616;border-bottom:1px solid #ffffff0f}
+.dot{width:12px;height:12px;border-radius:50%;background:#2e2e2e}
+.dot:first-child{background:var(--red)}
+.tab{margin-left:8px;font:500 17px/1 var(--mono);color:#8a8a8a}
+.tab b{color:#c8c8c8;font-weight:500}
+table{border-collapse:collapse;width:100%;font:500 16px/1 var(--mono);color:#a3a3a3;table-layout:fixed}
+th,td{padding:0 18px;height:44px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-bottom:1px solid #ffffff0a}
+th{color:#ffffff66;font-weight:500;background:#111;height:40px}
+td.n,th.n{text-align:right}
+.id{color:#6d6d6d} .t{color:#cfcfcf} .stk{color:#fff} .up{color:#7fd59a} .out{color:#6d6d6d}
+tr.hot td.stk{color:var(--red)}
+.foot{display:flex;justify-content:space-between;align-items:center;padding:16px 24px 18px;font:500 15px/1 var(--mono);color:#ffffff66;background:#111;border-top:1px solid #ffffff0f}
+.foot b{color:#fff;font-weight:500}
+.foot .ok{color:#7fd59a}
+/* portrait variant for phones (rendered at 1080x1920) */
+@media (orientation:portrait){html,body{width:1080px;height:1920px} .stage{width:1080px;height:1920px} .win{left:110px;top:190px;width:860px} th:nth-child(n+5),td:nth-child(n+5),col:nth-child(n+5){display:none} .foot{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block} .foot .ok{margin-left:18px}}
+</style>
+<div class="stage">
+  <div class="win">
+    <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="tab">6.1 / <b>2026-06-01-2927全店SKU导出.xls</b> → 转数字后</span></div>
+    <table>
+      <colgroup><col style="width:150px"><col style="width:300px"><col style="width:190px"><col style="width:100px"><col style="width:120px"><col style="width:100px"></colgroup>
+      <tr><th>商品ID</th><th>商品标题</th><th>SKU名称</th><th class="n">SKU库存</th><th class="n">SKU团购价</th><th>SKU状态</th></tr>
+      <tr><td class="id">960200608803</td><td class="t">运动板鞋 SMASH 女子低帮经典复古</td><td>白-白-蓝色-08,35.5</td><td class="n stk">0</td><td class="n">299</td><td class="up">上架</td></tr>
+      <tr class="hot"><td class="id">960157122487</td><td class="t">运动休闲鞋 CARINA 女子经典复古厚底</td><td>白-黑色-05,40</td><td class="n stk">12</td><td class="n">399</td><td class="up">上架</td></tr>
+      <tr><td class="id">934504082472</td><td class="t">女子复古撞色拼接厚底休闲鞋 R78 DISRUPT</td><td>银色-淡粉色-薄荷绿-01,40.5</td><td class="n stk">0</td><td class="n">567</td><td class="up">上架</td></tr>
+      <tr class="hot"><td class="id">864581319109</td><td class="t">短袖T恤 WORDING TEE 男运动休闲印花</td><td>黑色-01,L</td><td class="n stk">36</td><td class="n">105</td><td class="up">上架</td></tr>
+      <tr><td class="id">519334989817</td><td class="t">儿童幼童运动跑步鞋 TWITCH RUNNER</td><td>黑色-白-01,27.5</td><td class="n stk">0</td><td class="n">299</td><td class="out">下架</td></tr>
+      <tr class="hot"><td class="id">943778168719</td><td class="t">PUMA 男女同款印花运动短袖 PHOTOPRINT TEE</td><td>黑色-01,XL</td><td class="n stk">8</td><td class="n">129</td><td class="up">上架</td></tr>
+      <tr><td class="id">739922852986</td><td class="t">运动鞋 MAYU FURRYTAIL 女子厚底</td><td>米白色-02,37</td><td class="n stk">0</td><td class="n">459</td><td class="up">上架</td></tr>
+    </table>
+    <div class="foot"><span>[Sheet1] SKU库存 → 有值行数：<b>108,549</b>，转为数值：<b>108,549</b>，无法识别：0</span><span class="ok">✓ 完成</span></div>
+  </div>
+</div>
