@@ -9,12 +9,12 @@ html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#fff;fo
 .stage{position:relative;width:1920px;height:1080px}
 /* soft light from the top-left so the window sits on something, not in a void */
 .stage::before{content:none}
-.win{position:absolute;left:580px;top:104px;width:760px;border-radius:14px;background:#0d0d0d;box-shadow:0 40px 90px -30px #00000040,0 0 0 1px #00000010;overflow:hidden}
+.win{position:absolute;left:1180px;top:104px;width:1000px;border-radius:14px;background:#0d0d0d;box-shadow:0 40px 90px -30px #00000040,0 0 0 1px #00000010;overflow:hidden}
 .bar{height:56px;display:flex;align-items:center;gap:18px;padding:0 24px;background:#161616;border-bottom:1px solid #ffffff0f}
 .dot{width:12px;height:12px;border-radius:50%;background:#2e2e2e}
 .dot:first-child{background:var(--red)}
 .tab{margin-left:8px;font:500 17px/1 var(--mono);color:#8a8a8a;letter-spacing:.01em}
-pre{margin:0;padding:30px 38px 34px;font:500 18px/1.55 var(--mono);color:#8c8c8c;white-space:pre;tab-size:2}
+pre{margin:0;padding:34px 42px 38px;font:500 20px/1.55 var(--mono);color:#8c8c8c;white-space:pre;tab-size:2}
 .c{color:#ffffff55} .b{color:#ffffff} .r{color:var(--red)} .g{color:#7fd59a} .k{color:#eaeaea}
 .hl{color:var(--red)}
 .box{display:block;border:1.5px solid #ffffff24;border-radius:8px;padding:18px 26px 22px;margin-bottom:26px;color:#bdbdbd}
@@ -23,7 +23,7 @@ pre{margin:0;padding:30px 38px 34px;font:500 18px/1.55 var(--mono);color:#8c8c8c
 .noise{position:absolute;inset:0;background:url(../../assets/noise.png) repeat;background-size:18rem;opacity:.22;mix-blend-mode:multiply;pointer-events:none}
 .vig{position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,transparent 60%,#00000022 100%);pointer-events:none}
 /* portrait variant for phones (rendered at 1080x1920) */
-@media (orientation:portrait){html,body{width:1080px;height:1920px} .stage{width:1080px;height:1920px} .win{left:120px;top:190px;width:840px} pre{font-size:22px;padding:36px 44px 40px} .bar{height:64px} .tab{font-size:20px} .box{padding:22px 30px 26px}}
+@media (orientation:portrait){html,body{width:1080px;height:1920px} .stage{width:1080px;height:1920px} .win{left:420px;top:190px;width:900px} pre{font-size:22px;padding:36px 44px 40px} .bar{height:64px} .tab{font-size:20px} .box{padding:22px 30px 26px}}
 </style>
 <div class="stage">
   <div class="win">
